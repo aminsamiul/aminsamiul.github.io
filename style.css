@@ -135,3 +135,48 @@ footer {
   color: white;
   margin-top: 3rem;
 }
+
+/* Contact details in About */
+.contact-details {
+  margin-top: 1rem;
+  color: #333;
+  display: inline-block;
+  text-align: left;
+}
+.contact-details p {
+  margin: 0.25rem 0;
+}
+
+/* Experience */
+.experience, .skills {
+  padding: 3rem 10%;
+  background: #fff;
+  color: #222;
+}
+.experience-card {
+  max-width: 900px;
+  margin: 0.5rem auto;
+  text-align: left;
+}
+.experience-card ul {
+  margin-top: 0.5rem;
+  list-style: disc;
+  margin-left: 1.2rem;
+}
+
+/* Skills list */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.skill-list span {
+  background: #f1f7ff;
+  color: #007bff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
