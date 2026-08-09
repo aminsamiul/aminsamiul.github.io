@@ -1,95 +1,83 @@
-CURRICULUM VITAE
-Md. SAMIUL AMIN
-Dhaka, Bangladesh
+# Md. Samiul Amin — Urban & Regional Planner | GIS Analyst | Research Assistant
+
+Email: aminsamiul968@gmail.com
 Phone: +8801817057387
-aminsamiul968@gmail.com
-PROFESSIONAL SUMMARY
-An Urban Planner with hands-on experience in GIS, remote sensing, and spatial modelling for sustainable and
-climate-adaptive urban development.
-Skilled in using ArcGIS, QGIS, and Google Earth Engine for hydrological
-analysis, environmental monitoring climate and urban resilience studies.
-Strong teamwork and communication
-abilities through professional engagements at PDRC and academic projects at RUET.
-PROFESSIONAL EXPERIENCE
-Junior Urban Planner
-Aug 2025-Present
-Dhaka, Bangladesh
-Planning Design and Research Consultant (PDRC)
-Project: Preparation of Urban Master Plan under Improving Urban Governance and Infrastructure Program
-(IUGIP), Package No. IUGIP/MP/02/2023 (LGED)
-1. Performed comprehensive GIS analysis for five (5) Pourashava Master Plans, focusing on land use, road
-networks, and drainage systems to support evidence-based planning.
-2. Developed and managed the project's geodatabase by digitizing urban and environmental features, ensuring
-spatial accuracy and data consistency.
-3. Conducted advanced spatial analyses using ArcGIS and QGIS to assess urban growth patterns,
-infrastructure gaps, and model future development scenarios.
-4. Produced high-quality thematic maps and data visualizations for project stakeholders and LGED engineers
-towards facilitate planning decisions.
-5. Contributed critical geospatial insights that informed infrastructure improvement and sustainable land
-management strategies.
-6. Contributed to technical report preparation, spatial data documentation, and project deliverable
-management, ensuring alignment between geospatial outputs and planning objectives.
-7. Supported sustainable urban development strategies by integrating GIS insights into land management,
-zoning, and infrastructure investment priorities.
-EDUCATION
-Rajshahi University of Engineering & Technology (RUET)
-Bachelor in Urban & Regional Planning
-Dept. of Urban & Regional Planning (URP)
-Cumulative GPA: 3.53/4.0;
-RESEARCH PUBLICATIONS
-Rajshahi, Bangladesh
-Jan 2020-July 2025
-1. Exploring the constraints of jute cultivation and analysis of market value: A case study in
-Bhugroil, Paba Upazilla, Rajshahi.
-International Journal of Scientific Agriculture, Vol. 09, No. 4. March
-2024 [https://doi.org/10.25081/jsa.2025.v9.9504](https://doi.org/10.25081/jsa.2025.v9.9504)
-2. Unleashing the Potential: A Comprehensive Master Plan for the Padma River Port, Rajshahi.
-(Publication process Ongoing).
-ACADEMIC THESIS
-1. "Urban Change and Thermal Inequity: LST Analysis and Heat Vulnerability of Marginalized
-Populations in Rajshahi" (Abstract Shortlisted for book chapters under the book series Disaster Risk
-Reduction: Methods, Approaches and Practices, in Springer)
-SKILLS
-Category,Details
-GIS (Geographic Information System),ArcGIS/ArcGIS Pro/QGIS
-Software,AutoCAD, Sketch Up, Lumion, Adobe Illustrator
-Data Analysis,SPSS, MS Excel & Statistical analysis, KOBO Data Tool-Box
-Writing,Thesis Report, TOR, Project Proposal, Policy Brief.
-Data Collection,Questionnaire Method, Key Informant Interview (KII), Online
-Survey.
-Project Management,MS Project, Field Survey Coordination.
-Presentation,MS PowerPoint, Canva pro.
-Distinctive Skill,Cross-platform working ability with ArcGIS, Remote Sensing Tools.
-Remote Sensing,Google Earth Engine (GEE), Landsat 4-9 Image Processing.
-Language,Fluent in English & Bangla.
-PROJECTS/WORKS
-1. Regional Planning Studio
-a) FORMAL REGION DELINEATION ON BASIS OF AGRICULTURAL EMPLOΥΜΕΝΤ,
-BANGLADESH.
--To regionalize all 64 districts of Bangladesh according to the number of employments based on
-agriculture and to assess the effects on rural development.
-b) FUNCTINAL REGIONAL DELINEATION ON BASIS OF AGRICULTURAL EMPLOYΜΕΝΤ,
-BANGLADESH.
--Aims to map agricultural employment density and examine regional dependencies using Geographic
-Information System (GIS) tools at coastal area.
-2. Rural Planning Studio
-a) EXPLORING LAND USE EVOLUTION AND DRIVING MECHANISMS FOR RURAL
-DEVELOPMENT: A CASE STUDY TO DETERMINE FUTURE LAND USE IN A RURAL AREA.
-- To evaluate the current state of land use in the rural area and assess the potential impacts of ongoing
-land use changes on rural development.
--To identify the driving mechanisms behind land use changes in the rural area
-REFERENCES
-Md. SAKIB ZUBAYER
-Assistant Professor
-Department of Urban & Regional Planning
-Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh
-Mobile: +8801674968226
-Email: sakibzubayer@urp.ruet.ac.bd
-SUBROTA SAHA
-Senior Urban Planner
-Planning Design and Research Consultant (PDRC)
-Dhaka, Bangladesh
-Mobile: +8801717337451
-Email: saha.subrota@gmail.com
-Signature of the Applicant
-"I hereby declare and affirm that all information given here in above is true, accurate and up to-date"
+Location: Dhaka, Bangladesh
+LinkedIn: https://linkedin.com/in/aminsamiul
+Website: https://aminsamiul.github.io
+
+---
+
+## Executive Summary
+GIS Analyst and Urban & Regional Planning graduate (BURP, RUET) with 1+ year of professional experience supporting LGED urban infrastructure and master planning projects. Skilled in ArcMap, ArcGIS Pro, QGIS, Google Earth Engine, geodatabase development, spatial modeling, qualitative research (FGDs, KIIs), and field survey supervision. Experienced in translating spatial and socio-economic datasets into evidence-based planning solutions and technical reports.
+
+---
+
+## Education
+- **Bachelor of Urban & Regional Planning (BURP)**
+  Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh
+  Jan 2020 – July 2025 | CGPA: 3.53 / 4.00
+
+---
+
+## Professional Experience
+
+### 1. Junior Urban Planner / GIS Assistant / Research & Data Analyst
+**Planning Design and Research Consultant (PDRC)**, Dhaka, Bangladesh (Aug 2025 – Jul 2026)
+
+- **IUGIP Project (LGED):** *Preparation of Urban Master Plan under Improving Urban Governance and Infrastructure Program*
+  - Developed GIS-supported analytical frameworks for 15 Pourashava Master Plans under LGED.
+  - Performed spatial analysis of land use, infrastructure, drainage networks, and urban growth patterns using ArcGIS Pro and QGIS.
+  - Designed, developed, and maintained project geodatabases ensuring topology consistency, metadata integrity, and standardized spatial datasets.
+  - Produced thematic maps, land use maps, and spatial visualizations.
+
+- **UTMIDP Project (LGED):** *Upazila Town Master Plan Preparation and Basic Infrastructure Development Project*
+  - Designed GIS-based spatial sampling frameworks for socio-economic surveys across 3 Upazilas.
+  - Analyzed spatial and socio-economic datasets to identify infrastructure service gaps.
+
+- **Cantonment Boards Feasibility Study (Ministry of Defense):**
+  - Prepared GIS base maps, locational suitability analysis, and site context evaluations for Barisal and Ramu Cantonments.
+
+- **Community Engagement & Field Leadership:**
+  - Supervised ~270 Focus Group Discussions (FGDs) across 15 municipalities.
+  - Managed a field team of 15 enumerators, field budget of BDT 2,00,0000, MEAL reporting, and survey data validation.
+
+### 2. Research Assistant — Project-Based
+**Bangladesh Betar & PDRC** (Apr 2026 – Jun 2026)
+- Study: *Role of Bangladesh Betar in Socio-economic and Cultural Development of Northern Bangladesh*.
+- Facilitated 3 Focus Group Discussions (FGDs) and 15 Key Informant Interviews (KIIs).
+- Performed qualitative thematic analysis and authored technical research reports.
+
+---
+
+## Research Publications & Academic Thesis
+
+1. **Journal Publication:**
+   *“Exploring the constraints of jute cultivation and analysis of market value: A case study in Bhugroil, Paba Upazila, Rajshahi.”* International Journal of Scientific Agriculture, Vol. 09, No. 4. March 2024. DOI: 10.25081/jsa.2025.v9.9504
+
+2. **Academic Thesis:**
+   *“Urban Change and Thermal Inequity: Land Surface Temp. Analysis and Heat Vulnerability of Marginalized Populations in Rajshahi.”* (Abstract shortlisted for book chapter under Springer Disaster Risk Reduction series).
+
+3. **Research Project:**
+   *Role of Bangladesh Betar in Socio-economic and Cultural Development* (Bangladesh Betar & PDRC).
+
+---
+
+## Professional Development & Certifications
+- **Aspire Leaders Program** (Aspire Institute, Harvard-founded initiative, 2026) — Public problem-solving, leadership, and collaboration.
+- **Geospatial Data Analysis and Management - Intermediate Level** (BIM & National Cyber Security Agency, GoB, May 2026, Score: 82%) — GIS database development, spatial analysis, and decision support systems.
+
+---
+
+## Core Competencies & Skills
+- **GIS & Remote Sensing:** ArcMap, ArcGIS Pro, QGIS, Google Earth Engine (GEE), Landsat 4–9 Image Processing, Geodatabase Design, Spatial Analysis, Thematic Mapping.
+- **Qualitative & Field Research:** FGD & KII Facilitation, Field Survey Coordination, KoboToolbox, ArcGIS Field Maps, Survey Form Design, Data Validation.
+- **Design & Planning Tools:** Map Layout Design, AutoCAD, Adobe Illustrator, SketchUp, Lumion.
+- **Data Analysis & Management:** MS Excel, SPSS, MS Project, Technical Report Writing, Academic Writing, Policy Briefs.
+- **Languages:** Bengali (Native), English (Professional Working Proficiency).
+
+---
+
+## References
+1. **Sakib Zubayer** — Assistant Professor & Academic Thesis Supervisor, Department of URP, RUET (+8801674968226, sakibzubayer@urp.ruet.ac.bd)
+2. **Subrata Saha** — Senior Urban Planner, PDRC, Dhaka, Bangladesh (+8801717337451, saha.subrota@gmail.com)
