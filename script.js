@@ -2,6 +2,95 @@ function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+const docConfigs = {
+  gis: {
+    title: "GIS Analyst CV (Live Document)",
+    embedUrl: "https://docs.google.com/document/d/133anLjHZHYtw2hYV_blJY9IR0KdH5CyFJXv4293qwug/preview",
+    editUrl: "https://docs.google.com/document/d/133anLjHZHYtw2hYV_blJY9IR0KdH5CyFJXv4293qwug/edit",
+    pdfUrl: "Samiul_Amin_GIS_Analyst_CV.pdf"
+  },
+  research: {
+    title: "Research Assistant CV (Live Document)",
+    embedUrl: "https://docs.google.com/document/d/1ZHxnGPj9hbjtvzbZl6WiSIsTZbWyk48yiYqy8mV3DmM/preview",
+    editUrl: "https://docs.google.com/document/d/1ZHxnGPj9hbjtvzbZl6WiSIsTZbWyk48yiYqy8mV3DmM/edit",
+    pdfUrl: "Samiul_Amin_Research_Assistant_CV.pdf"
+  }
+};
+
+let activeDocType = "gis";
+
+function switchCvTab(type) {
+  if (!docConfigs[type]) return;
+  activeDocType = type;
+
+  const config = docConfigs[type];
+
+  // Update tabs active state
+  document.querySelectorAll(".cv-tab").forEach((tab) => {
+    const isTarget = tab.id === `tab-${type}`;
+    tab.classList.toggle("active", isTarget);
+    tab.setAttribute("aria-selected", String(isTarget));
+  });
+
+  // Show loader and update iframe
+  const loader = document.getElementById("iframe-loader");
+  if (loader) {
+    loader.style.opacity = "1";
+    loader.style.pointerEvents = "auto";
+  }
+
+  const iframe = document.getElementById("cv-iframe");
+  if (iframe) {
+    iframe.src = config.embedUrl;
+  }
+
+  // Update external links
+  const gdocLink = document.getElementById("gdoc-external-link");
+  if (gdocLink) {
+    gdocLink.href = config.editUrl;
+  }
+
+  const pdfLink = document.getElementById("pdf-download-link");
+  if (pdfLink) {
+    pdfLink.href = config.pdfUrl;
+  }
+}
+
+function hideIframeLoader() {
+  const loader = document.getElementById("iframe-loader");
+  if (loader) {
+    loader.style.opacity = "0";
+    loader.style.pointerEvents = "none";
+  }
+}
+
+function openCvFullscreen() {
+  const modal = document.getElementById("cv-modal");
+  const modalIframe = document.getElementById("modal-iframe");
+  const modalTitle = document.getElementById("modal-title");
+
+  const config = docConfigs[activeDocType];
+  if (modal && modalIframe && config) {
+    modalIframe.src = config.embedUrl;
+    if (modalTitle) modalTitle.textContent = config.title;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeCvFullscreen() {
+  const modal = document.getElementById("cv-modal");
+  const modalIframe = document.getElementById("modal-iframe");
+
+  if (modal) {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    if (modalIframe) modalIframe.src = "";
+    document.body.style.overflow = "";
+  }
+}
+
 const body = document.body;
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
