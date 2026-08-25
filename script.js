@@ -2,6 +2,49 @@ function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function copyContact(text, message) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(message || "Copied to clipboard!");
+  }).catch(() => {
+    // Fallback if clipboard API is restricted
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    showToast(message || "Copied to clipboard!");
+  });
+}
+
+function showToast(message) {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2800);
+}
+
+function filterSkills(category, btnElement) {
+  document.querySelectorAll(".skill-filter-btn").forEach((btn) => btn.classList.remove("active"));
+  if (btnElement) btnElement.classList.add("active");
+
+  const cards = document.querySelectorAll(".skill-card");
+  cards.forEach((card) => {
+    if (category === "all" || card.getAttribute("data-category") === category) {
+      card.style.display = "flex";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
 const docConfigs = {
   gis: {
     title: "GIS Analyst CV (Live Document)",
@@ -25,14 +68,12 @@ function switchCvTab(type) {
 
   const config = docConfigs[type];
 
-  // Update tabs active state
   document.querySelectorAll(".cv-tab").forEach((tab) => {
     const isTarget = tab.id === `tab-${type}`;
     tab.classList.toggle("active", isTarget);
     tab.setAttribute("aria-selected", String(isTarget));
   });
 
-  // Show loader and update iframe
   const loader = document.getElementById("iframe-loader");
   if (loader) {
     loader.style.opacity = "1";
@@ -44,7 +85,6 @@ function switchCvTab(type) {
     iframe.src = config.embedUrl;
   }
 
-  // Update external links
   const gdocLink = document.getElementById("gdoc-external-link");
   if (gdocLink) {
     gdocLink.href = config.editUrl;
