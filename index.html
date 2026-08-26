@@ -1,465 +1,912 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of Md. Samiul Amin - Urban & Regional Planner, GIS Analyst, and Research Assistant specializing in spatial analysis, master planning, remote sensing, and socio-economic research." />
-    <title>Md. Samiul Amin | Urban Planner, GIS Analyst & Researcher</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
-  </head>
-  <body>
-    <div class="scroll-progress" id="scroll-progress"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Samiul Amin — GIS & Spatial Data Analyst, Urban & Regional Planner specializing in LGED master planning, remote sensing, geodatabases, and socio-economic research." />
+  <meta name="keywords" content="Samiul Amin, GIS Analyst, Urban Planner, RUET, Spatial Data, ArcMap, QGIS, Google Earth Engine, LGED, Master Planning, Bangladesh" />
+  <meta name="author" content="Samiul Amin" />
+  <meta property="og:title" content="Samiul Amin | GIS & Spatial Data Analyst | Urban & Regional Planner" />
+  <meta property="og:description" content="Portfolio of Samiul Amin — LGED Master Planning, GIS Spatial Modeling, Remote Sensing, and Socio-Economic Research." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aminsamiul.github.io" />
+  <meta property="og:image" content="https://aminsamiul.github.io/portrait.jpg" />
+  
+  <title>Samiul Amin | GIS & Spatial Data Analyst | Urban Planner</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Top Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <nav class="navbar container" aria-label="Primary navigation">
-        <a class="logo" href="#home">
-          <span class="logo-mark">SA</span>
-          <span class="logo-text">Samiul Amin</span>
-        </a>
+  <!-- Global Header Navigation -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Primary navigation">
+      <a class="logo" href="#home" aria-label="Samiul Amin Home">
+        <span class="logo-mark">SA</span>
+        <span class="logo-text">Samiul Amin</span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#references">References</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-cv-pill" href="cv/" title="Open Interactive Curriculum Vitae">📄 View CV ↗</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">🌙</button>
         <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
         </button>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#cv-viewer">Live CV</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">🌙</button>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section id="home" class="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="container hero-inner">
-          <div class="hero-visual reveal">
-            <div class="portrait-container">
-              <img src="portrait.jpg" alt="Portrait of Md. Samiul Amin" class="hero-portrait" />
-              <div class="portrait-ring"></div>
-            </div>
-            <div class="hero-badge">
-              <span class="pulse-beacon"></span> Available for GIS, Planning & Research Collaborations
-            </div>
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        
+        <div class="hero-content reveal">
+          <div class="status-badge">
+            <span class="pulse-dot"></span> Available for GIS, Urban Planning & Spatial Research
           </div>
-          <div class="hero-content reveal">
-            <div class="eyebrow-pill">
-              <span>Urban & Regional Planner</span>
-              <span class="dot">•</span>
-              <span>GIS Analyst</span>
-              <span class="dot">•</span>
-              <span>Research Specialist</span>
+
+          <h1 class="hero-title">
+            Bridging <span class="hero-title-highlight">Spatial Analytics,</span> Urban Planning &amp; Sustainable Growth.
+          </h1>
+
+          <p class="hero-subtitle">
+            <strong>Samiul Amin</strong> — GIS &amp; Spatial Data Analyst and Urban &amp; Regional Planning graduate (<strong>BURP, RUET</strong>). Professional experience supporting 15 LGED Pourashava master plans, geodatabase development, remote sensing, and participatory socio-economic research.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="cv/" title="Explore Full Interactive Curriculum Vitae">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              View Full Interactive CV ↗
+            </a>
+            <a class="btn btn-secondary" href="#projects">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+              Explore Projects
+            </a>
+            <a class="btn btn-secondary" href="Samiul_Amin_GIS_Urban_Planning_CV.pdf" download="Samiul_Amin_CV.pdf">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download PDF
+            </a>
+          </div>
+
+          <div class="hero-social-chips">
+            <button class="social-chip" onclick="copyContact('aminsamiul968@gmail.com', 'Email copied to clipboard!')" type="button" title="Copy Email">
+              <span>✉️</span> aminsamiul968@gmail.com
+            </button>
+            <button class="social-chip" onclick="copyContact('+8801817057387', 'Phone copied to clipboard!')" type="button" title="Copy Phone">
+              <span>📞</span> +880 1817-057387
+            </button>
+            <a class="social-chip" href="https://linkedin.com/in/aminsamiul" target="_blank" rel="noreferrer" title="LinkedIn Profile">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.49 1.49 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.49 1.49 0 0 0-1.5-1.5z"/></svg>
+              LinkedIn
+            </a>
+            <a class="social-chip" href="https://github.com/aminsamiul" target="_blank" rel="noreferrer" title="GitHub Profile">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="portrait-wrapper">
+            <div class="portrait-card">
+              <img src="portrait.jpg" alt="Samiul Amin - GIS Analyst & Urban Planner" class="portrait-img" />
             </div>
-            <h1>Bridging spatial analysis, urban planning & socio-economic research.</h1>
-            <p class="hero-copy">
-              BURP Graduate from <strong>RUET</strong> with professional expertise in LGED Pourashava master planning, GIS spatial modeling, qualitative research (FGD/KII), and urban climate vulnerability assessments.
-            </p>
-            <div class="hero-actions">
-              <button class="btn btn-primary" type="button" onclick="scrollToSection('cv-viewer')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                View Live CVs
-              </button>
-              <a class="btn btn-secondary" href="Samiul_Amin_GIS_Analyst_CV.pdf" target="_blank" rel="noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                GIS CV (PDF)
-              </a>
-              <a class="btn btn-secondary" href="Samiul_Amin_Research_Assistant_CV.pdf" target="_blank" rel="noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                Research CV (PDF)
-              </a>
-            </div>
-            <div class="social-quick-links">
-              <a href="https://linkedin.com/in/aminsamiul" target="_blank" rel="noreferrer" title="LinkedIn">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.49 1.49 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.49 1.49 0 0 0-1.5-1.5z"/></svg>
-                LinkedIn
-              </a>
-              <a href="https://github.com/aminsamiul" target="_blank" rel="noreferrer" title="GitHub">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                GitHub
-              </a>
-              <button class="copy-chip" onclick="copyContact('aminsamiul968@gmail.com', 'Email copied!')" type="button">
-                ✉️ aminsamiul968@gmail.com
-              </button>
+            <div class="floating-stat-badge">
+              <span>📍 Dhaka, BD</span>
+              <span>•</span>
+              <span class="accent-text">RUET BURP (3.53)</span>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- Key Metrics Section -->
-      <section class="stats-section container reveal">
-        <article class="stat-card">
-          <div class="stat-icon">🗺️</div>
-          <strong>15</strong>
-          <span>Pourashava Master Plans (LGED)</span>
-        </article>
-        <article class="stat-card">
-          <div class="stat-icon">👥</div>
-          <strong>270+</strong>
-          <span>FGDs Supervised & Coordinated</span>
-        </article>
-        <article class="stat-card">
-          <div class="stat-icon">🎓</div>
-          <strong>3.53 / 4.00</strong>
-          <span>BURP Academic CGPA (RUET)</span>
-        </article>
-      </section>
+      </div>
+    </section>
 
-      <!-- About Section -->
-      <section id="about" class="section section-alt">
-        <div class="container about-grid">
-          <div class="reveal">
-            <p class="section-label">About Me</p>
-            <h2>Planning with spatial precision, data integrity, and community voice.</h2>
+    <!-- Key Metrics Section -->
+    <section class="metrics-section container reveal" aria-label="Key professional impact statistics">
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <div class="metric-icon">🗺️</div>
+          <div class="stat-number" data-target="15" data-suffix="">15</div>
+          <div class="metric-label">Pourashava Master Plans (LGED)</div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-icon">👥</div>
+          <div class="stat-number" data-target="270" data-suffix="+">270+</div>
+          <div class="metric-label">Focus Group Discussions Supervised</div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-icon">🎓</div>
+          <div class="stat-number" data-target="3.53" data-decimals="2" data-suffix=" / 4.00">3.53 / 4.00</div>
+          <div class="metric-label">BURP Academic CGPA (RUET)</div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-icon">⚡</div>
+          <div class="stat-number" data-target="1" data-suffix="+ Years">1+ Years</div>
+          <div class="metric-label">Professional Master Planning &amp; GIS</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About & Core Competencies Section -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">About &amp; Competencies</span>
+          <h2 class="section-title">Evidence-based planning meets spatial modeling</h2>
+          <p class="section-desc">Transforming complex spatial, demographic, and environmental datasets into actionable urban infrastructure solutions.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
             <p>
-              I am <strong>Md. Samiul Amin</strong>, an Urban & Regional Planning graduate from Rajshahi University of Engineering & Technology (RUET) based in Dhaka, Bangladesh.
+              I am <strong>Samiul Amin</strong>, an Urban and Regional Planning graduate from <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong> with professional consultancy experience at Planning Design and Research Consultant (PDRC) in Dhaka, Bangladesh.
             </p>
             <p>
-              My work combines advanced geospatial analytics (ArcGIS Pro, ArcMap, QGIS, Google Earth Engine) with qualitative socio-economic research (FGDs, KIIs, participatory planning). I have supported major infrastructure master planning projects under LGED and Ministry of Defense feasibility studies.
+              My expertise spans the entire spatial analysis lifecycle &mdash; from designing enterprise geodatabases, topological QA/QC, and land use / land cover (LULC) remote sensing to supervising large-scale field enumerator teams across municipalities for LGED master planning projects.
             </p>
-            <div class="about-pills">
-              <span class="pill">Geodatabase Architecture</span>
-              <span class="pill">LULC Remote Sensing</span>
-              <span class="pill">Qualitative Data Analysis</span>
-              <span class="pill">Urban Climate Resilience</span>
+            <p>
+              Passionate about applying geospatial technologies (ArcGIS Pro, ArcMap, QGIS, Google Earth Engine) toward climate-responsive urban growth, thermal resilience, and sustainable municipal infrastructure.
+            </p>
+            <div style="margin-top: 1.5rem;">
+              <a class="btn btn-primary btn-sm" href="cv/">📄 Explore Comprehensive CV in Detail →</a>
             </div>
           </div>
-          <div class="contact-card reveal">
-            <h3>Contact Information</h3>
-            <p><strong>Location:</strong> Dhaka, Bangladesh</p>
-            <p><strong>Phone:</strong> <button class="copy-text-btn" onclick="copyContact('+8801817057387', 'Phone copied!')">+880 1817-057387 📋</button></p>
-            <p><strong>Email:</strong> <button class="copy-text-btn" onclick="copyContact('aminsamiul968@gmail.com', 'Email copied!')">aminsamiul968@gmail.com 📋</button></p>
-            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/aminsamiul" target="_blank" rel="noreferrer">linkedin.com/in/aminsamiul</a></p>
-            <p><strong>Website:</strong> <a href="https://aminsamiul.github.io" target="_blank" rel="noreferrer">aminsamiul.github.io</a></p>
-            <a class="text-link" href="llm.txt" download>📥 Download Complete CV (Text Format)</a>
+
+          <div class="competencies-grid reveal">
+            <div class="competency-card">
+              <div class="competency-icon">🛰️</div>
+              <div>
+                <div class="competency-title">GIS Spatial Modelling</div>
+                <div class="competency-desc">Urban expansion dynamics, drainage networks, and zoning analysis.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">🗄️</div>
+              <div>
+                <div class="competency-title">Geodatabase Architecture</div>
+                <div class="competency-desc">Topological consistency, schema design, and standardized metadata.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">🗺️</div>
+              <div>
+                <div class="competency-title">Thematic Cartography</div>
+                <div class="competency-desc">High-precision infrastructure mapping and spatial visualization.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">🌍</div>
+              <div>
+                <div class="competency-title">LULC &amp; Remote Sensing</div>
+                <div class="competency-desc">Landsat 4–9 processing, GEE script analysis, and LST extraction.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">🏗️</div>
+              <div>
+                <div class="competency-title">Urban Infrastructure Planning</div>
+                <div class="competency-desc">Municipal master plans, utility gap analysis, and zoning frameworks.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">🔍</div>
+              <div>
+                <div class="competency-title">Spatial Data QA / QC</div>
+                <div class="competency-desc">Rigorous spatial validation, data cleaning, and topology checks.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">📊</div>
+              <div>
+                <div class="competency-title">Technical Reporting</div>
+                <div class="competency-desc">Evidence-based decision support, feasibility studies, and briefs.</div>
+              </div>
+            </div>
+
+            <div class="competency-card">
+              <div class="competency-icon">🤝</div>
+              <div>
+                <div class="competency-title">Community &amp; Field Leadership</div>
+                <div class="competency-desc">Managing enumerator teams, 270+ FGDs, KIIs, and mobile surveys.</div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
-      <!-- Featured Projects Section -->
-      <section id="projects" class="section">
-        <div class="container">
-          <p class="section-label reveal">Featured Projects</p>
-          <h2 class="section-title reveal">Master planning, spatial research & feasibility studies</h2>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section (Interactive Grid) -->
+    <section id="projects" class="section">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Featured Projects</span>
+          <h2 class="section-title">Master Planning, Spatial Research &amp; Feasibility</h2>
+          <p class="section-desc">Selected consultancy assignments, national development programs, and peer-reviewed research.</p>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filter-bar reveal">
+          <button class="filter-btn active" data-filter="all" type="button">All Projects (6)</button>
+          <button class="filter-btn" data-filter="lged" type="button">LGED Master Plans</button>
+          <button class="filter-btn" data-filter="remote-sensing" type="button">Remote Sensing &amp; Climate</button>
+          <button class="filter-btn" data-filter="feasibility" type="button">Feasibility Studies</button>
+          <button class="filter-btn" data-filter="research" type="button">Research &amp; Field Studies</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
           
-          <div class="project-grid">
-            <article class="project-card reveal">
-              <div class="project-badge">LGED IUGIP</div>
-              <h3>15 Pourashava Master Plans</h3>
-              <p>Supported research & spatial database development for 15 Pourashavas under LGED. Conducted spatial modeling for land use dynamics, drainage patterns, and urban expansion trends.</p>
-              <div class="chip-row">
-                <span>ArcGIS Pro</span>
-                <span>QGIS</span>
-                <span>Land Use Modeling</span>
-                <span>Geodatabases</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">LGED UTMIDP</div>
-              <h3>Upazila Town Spatial Sampling Framework</h3>
-              <p>Designed GIS-based spatial sampling frameworks across 3 Upazila towns. Analyzed spatial & socio-economic datasets to identify infrastructure service gaps.</p>
-              <div class="chip-row">
-                <span>Spatial Sampling</span>
-                <span>Accessibility Analysis</span>
-                <span>UTMIDP</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">Academic Thesis</div>
-              <h3>Urban Change & Thermal Inequity (Rajshahi)</h3>
-              <p>Integrated Landsat thermal remote sensing, spatial statistics, and socio-demographic datasets to map urban heat vulnerability among marginalized populations.</p>
-              <div class="chip-row">
-                <span>Springer Shortlisted</span>
-                <span>GEE</span>
-                <span>LST Analysis</span>
-                <span>Climate Equity</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">Peer-Reviewed</div>
-              <h3>Jute Cultivation & Market Value Constraints</h3>
-              <p>Field-based research analyzing agricultural constraints, market chains, and participatory approaches in Paba Upazila, Rajshahi (IJSA Journal, March 2024).</p>
-              <div class="chip-row">
-                <span>DOI: 10.25081/jsa.2025.v9.9504</span>
-                <span>Market Chain</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">Ministry of Defense</div>
-              <h3>Cantonment Boards Infrastructure Feasibility</h3>
-              <p>Prepared GIS base maps, locational suitability analysis, and site context evaluations for physical infrastructure in Barisal and Ramu Cantonment Boards.</p>
-              <div class="chip-row">
-                <span>Base Mapping</span>
-                <span>Site Suitability</span>
-                <span>Feasibility</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">Bangladesh Betar</div>
-              <h3>Socio-Economic Development Study</h3>
-              <p>Facilitated 3 FGDs and 15 KIIs across Northern Bangladesh. Performed qualitative thematic synthesis and authored technical research reports.</p>
-              <div class="chip-row">
-                <span>Qualitative Synthesis</span>
-                <span>FGD & KII</span>
-                <span>PDRC</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Advanced Live Google Docs CV Viewer -->
-      <section id="cv-viewer" class="section section-alt">
-        <div class="container">
-          <div class="cv-header reveal">
+          <!-- Project 1: LGED IUGIP -->
+          <article class="project-card reveal" data-category="lged">
             <div>
-              <p class="section-label">Live Google Docs & Document Viewer</p>
-              <h2 class="section-title">Interactive Resume & CV Viewer</h2>
-            </div>
-            <div class="live-status-badge">
-              <span class="pulse-dot"></span> Live Sync Enabled from Google Docs
-            </div>
-          </div>
-
-          <div class="cv-viewer-card reveal">
-            <div class="cv-tabs-bar">
-              <div class="cv-tabs" role="tablist">
-                <button class="cv-tab active" id="tab-gis" type="button" role="tab" aria-selected="true" onclick="switchCvTab('gis')">
-                  🗺️ GIS Analyst CV
-                </button>
-                <button class="cv-tab" id="tab-research" type="button" role="tab" aria-selected="false" onclick="switchCvTab('research')">
-                  📊 Research Assistant CV
-                </button>
-              </div>
-              <div class="cv-actions">
-                <button class="btn btn-sm btn-secondary" type="button" onclick="openCvFullscreen()">⛶ Fullscreen</button>
-                <a id="gdoc-external-link" class="btn btn-sm btn-secondary" href="https://docs.google.com/document/d/133anLjHZHYtw2hYV_blJY9IR0KdH5CyFJXv4293qwug/edit" target="_blank" rel="noreferrer">↗ Open Google Doc</a>
-                <a id="pdf-download-link" class="btn btn-sm btn-primary" href="Samiul_Amin_GIS_Analyst_CV.pdf" target="_blank" rel="noreferrer">📥 Download PDF</a>
+              <div class="project-tag-pill">LGED • IUGIP</div>
+              <h3 class="project-title">15 Pourashava Master Plans</h3>
+              <p class="project-desc">
+                Developed analytical frameworks and enterprise geodatabases for 15 Pourashavas under LGED. Performed spatial analysis of land use, drainage networks, and urban growth patterns using ArcGIS Pro and QGIS.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">ArcGIS Pro</span>
+                <span class="tech-tag">QGIS</span>
+                <span class="tech-tag">Geodatabases</span>
+                <span class="tech-tag">Land Use Modeling</span>
               </div>
             </div>
-
-            <div class="iframe-wrapper">
-              <div class="iframe-loader" id="iframe-loader">
-                <div class="spinner"></div>
-                <p>Loading Live Document from Google Docs...</p>
-              </div>
-              <iframe
-                id="cv-iframe"
-                src="https://docs.google.com/document/d/133anLjHZHYtw2hYV_blJY9IR0KdH5CyFJXv4293qwug/preview"
-                title="Live CV Document Viewer"
-                allow="autoplay"
-                onload="hideIframeLoader()"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience" class="section">
-        <div class="container">
-          <p class="section-label reveal">Experience</p>
-          <h2 class="section-title reveal">Professional journey</h2>
-          <div class="timeline reveal">
-            <article class="timeline-card">
-              <div class="timeline-marker"></div>
-              <div>
-                <h3>Junior Urban Planner / GIS Assistant / Research Analyst</h3>
-                <p class="timeline-meta">Planning Design and Research Consultant (PDRC), Dhaka • Aug 2025 – Jul 2026</p>
-                <ul>
-                  <li><strong>IUGIP Master Plans (LGED):</strong> Developed analytical frameworks & geodatabases for 15 Pourashava Master Plans. Executed land use, drainage, and urban growth spatial modeling.</li>
-                  <li><strong>UTMIDP (LGED):</strong> Designed spatial sampling frameworks for socio-economic surveys across 3 Upazila towns.</li>
-                  <li><strong>Cantonment Boards Feasibility:</strong> Prepared GIS-based site suitability & accessibility analyses for Barisal and Ramu Cantonments.</li>
-                  <li><strong>Community Engagement:</strong> Supervised ~270 Focus Group Discussions (FGDs) across 15 municipalities, managing 15 enumerators and BDT 2,000,000 field budget.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-card">
-              <div class="timeline-marker"></div>
-              <div>
-                <h3>Research Assistant (Project-Based)</h3>
-                <p class="timeline-meta">Bangladesh Betar & PDRC • Apr 2026 – Jun 2026</p>
-                <ul>
-                  <li>Study: <em>“Role of Bangladesh Betar in Socio-economic and Cultural Development of Northern Bangladesh.”</em></li>
-                  <li>Facilitated 3 FGDs and 15 Key Informant Interviews (KIIs). Conducted qualitative thematic analysis & authored project reports.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Research & Accolades Section -->
-      <section id="research" class="section section-alt">
-        <div class="container">
-          <p class="section-label reveal">Research & Accolades</p>
-          <h2 class="section-title reveal">Publications, thesis & certifications</h2>
-          <div class="project-grid">
-            <article class="project-card reveal">
-              <div class="project-badge">Published Paper</div>
-              <h3>Constraints of Jute Cultivation & Market Value</h3>
-              <p>International Journal of Scientific Agriculture, Vol. 09, No. 4, March 2024. DOI: 10.25081/jsa.2025.v9.9504</p>
-              <div class="chip-row"><a href="https://doi.org/10.25081/jsa.2025.v9.9504" target="_blank" rel="noreferrer" class="text-link">🔗 View Publication</a></div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">Springer Shortlisted</div>
-              <h3>Urban Thermal Inequity & LST Analysis</h3>
-              <p>RUET Academic Thesis shortlisted for book chapter in Springer Disaster Risk Reduction Series.</p>
-              <div class="chip-row"><span>Springer Book Chapter</span><span>Heat Vulnerability</span></div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">Harvard Initiative</div>
-              <h3>Aspire Leaders Program (2026)</h3>
-              <p>Aspire Institute (founded at Harvard University). Leadership development focused on public problem-solving, collaboration, and social impact.</p>
-              <div class="chip-row"><span>Leadership</span><span>Social Impact</span></div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-badge">BIM & NCSA Certification</div>
-              <h3>Geospatial Data Analysis & Management</h3>
-              <p>Organized by BIM & National Cyber Security Agency, GoB (May 2026). Score: 82%. Intermediate-level spatial database development & decision support.</p>
-              <div class="chip-row"><span>Score: 82%</span><span>Govt of Bangladesh</span></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="section">
-        <div class="container">
-          <p class="section-label reveal">Skills & Competencies</p>
-          <h2 class="section-title reveal">Tools, technologies & research methods</h2>
-          
-          <div class="skill-filters reveal">
-            <button class="skill-filter-btn active" onclick="filterSkills('all', this)" type="button">All Skills</button>
-            <button class="skill-filter-btn" onclick="filterSkills('gis', this)" type="button">GIS & Remote Sensing</button>
-            <button class="skill-filter-btn" onclick="filterSkills('research', this)" type="button">Research & Survey</button>
-            <button class="skill-filter-btn" onclick="filterSkills('design', this)" type="button">Design & Software</button>
-          </div>
-
-          <div class="skill-list-container reveal">
-            <div class="skill-card" data-category="gis">
-              <span class="skill-tag">ArcGIS Pro</span>
-              <span class="skill-tag">ArcMap</span>
-              <span class="skill-tag">QGIS</span>
-              <span class="skill-tag">Google Earth Engine</span>
-              <span class="skill-tag">Landsat 4–9 Image Processing</span>
-              <span class="skill-tag">Geodatabase Architecture</span>
-              <span class="skill-tag">Spatial Modeling</span>
-              <span class="skill-tag">Thematic Mapping</span>
-            </div>
-            <div class="skill-card" data-category="research" style="margin-top: 1rem;">
-              <span class="skill-tag">Qualitative Analysis</span>
-              <span class="skill-tag">FGD & KII Facilitation</span>
-              <span class="skill-tag">KoboToolbox</span>
-              <span class="skill-tag">ArcGIS Field Maps</span>
-              <span>Survey Form Design</span>
-              <span class="skill-tag">Data Validation & QA</span>
-              <span class="skill-tag">SPSS</span>
-              <span class="skill-tag">MS Excel</span>
-            </div>
-            <div class="skill-card" data-category="design" style="margin-top: 1rem;">
-              <span class="skill-tag">AutoCAD</span>
-              <span class="skill-tag">Adobe Illustrator</span>
-              <span class="skill-tag">SketchUp</span>
-              <span class="skill-tag">Lumion</span>
-              <span class="skill-tag">MS Project</span>
-              <span class="skill-tag">Technical Report Writing</span>
-              <span class="skill-tag">Bengali (Native)</span>
-              <span class="skill-tag">English (Professional)</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- References Section -->
-      <section id="references" class="section section-alt">
-        <div class="container">
-          <p class="section-label reveal">References</p>
-          <h2 class="section-title reveal">Academic & professional references</h2>
-          <div class="project-grid">
-            <article class="project-card reveal">
-              <h3>Sakib Zubayer</h3>
-              <p class="meta-note">Assistant Professor & Academic Thesis Supervisor</p>
-              <p>Department of Urban & Regional Planning, RUET</p>
-              <p><strong>Phone:</strong> <button class="copy-text-btn" onclick="copyContact('+8801674968226', 'Phone copied!')">+880 1674-968226 📋</button></p>
-              <p><strong>Email:</strong> <button class="copy-text-btn" onclick="copyContact('sakibzubayer@urp.ruet.ac.bd', 'Email copied!')">sakibzubayer@urp.ruet.ac.bd 📋</button></p>
-            </article>
-            <article class="project-card reveal">
-              <h3>Subrata Saha</h3>
-              <p class="meta-note">Senior Urban Planner</p>
-              <p>Planning Design & Research Consultant (PDRC), Dhaka</p>
-              <p><strong>Phone:</strong> <button class="copy-text-btn" onclick="copyContact('+8801717337451', 'Phone copied!')">+880 1717-337451 📋</button></p>
-              <p><strong>Email:</strong> <button class="copy-text-btn" onclick="copyContact('saha.subrota@gmail.com', 'Email copied!')">saha.subrota@gmail.com 📋</button></p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="section">
-        <div class="container contact-grid">
-          <div class="reveal">
-            <p class="section-label">Contact</p>
-            <h2>Let’s build resilient, data-driven cities together.</h2>
-            <p>Whether you need urban planning expertise, GIS spatial modeling, or qualitative field research, feel free to get in touch.</p>
-            <div class="contact-quick-actions">
-              <button class="btn btn-secondary" onclick="copyContact('aminsamiul968@gmail.com', 'Email copied to clipboard!')" type="button">
-                ✉️ Copy Email Address
-              </button>
-              <button class="btn btn-secondary" onclick="copyContact('+8801817057387', 'Phone copied to clipboard!')" type="button">
-                📞 Copy Phone Number
+            <div class="project-footer">
+              <button class="details-trigger-btn" onclick="openProjectModal('lged-iugip')" type="button">
+                <span>View Case Study</span> <span>→</span>
               </button>
             </div>
+          </article>
+
+          <!-- Project 2: LGED UTMIDP -->
+          <article class="project-card reveal" data-category="lged">
+            <div>
+              <div class="project-tag-pill">LGED • UTMIDP</div>
+              <h3 class="project-title">Upazila Town Spatial Sampling Framework</h3>
+              <p class="project-desc">
+                Designed GIS-based spatial sampling frameworks for socio-economic surveys across three (3) non-municipal Upazilas, identifying infrastructure service gaps to guide capital investment.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Spatial Sampling</span>
+                <span class="tech-tag">Accessibility Modeling</span>
+                <span class="tech-tag">KoboToolbox</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="details-trigger-btn" onclick="openProjectModal('lged-utmidp')" type="button">
+                <span>View Case Study</span> <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3: Cantonment Boards Feasibility -->
+          <article class="project-card reveal" data-category="feasibility">
+            <div>
+              <div class="project-tag-pill">Ministry of Defense</div>
+              <h3 class="project-title">Barisal &amp; Ramu Cantonment Infrastructure Feasibility</h3>
+              <p class="project-desc">
+                Prepared GIS base maps, multicriteria locational suitability analysis, and site context assessments for physical infrastructure facilities in newly established Cantonment Boards.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Site Suitability</span>
+                <span class="tech-tag">Digital Elevation</span>
+                <span class="tech-tag">Feasibility Report</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="details-trigger-btn" onclick="openProjectModal('mod-cantonment')" type="button">
+                <span>View Case Study</span> <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 4: Academic Thesis -->
+          <article class="project-card reveal" data-category="remote-sensing research">
+            <div>
+              <div class="project-tag-pill">Springer Shortlisted • Thesis</div>
+              <h3 class="project-title">Urban Change &amp; Thermal Inequity (Rajshahi)</h3>
+              <p class="project-desc">
+                Integrated Landsat thermal remote sensing, spatial statistics, and socio-demographic microdata to map Land Surface Temperature (LST) disparities and heat vulnerability of marginalized populations.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Google Earth Engine</span>
+                <span class="tech-tag">Landsat 4–9</span>
+                <span class="tech-tag">LST Extraction</span>
+                <span class="tech-tag">Spatial Statistics</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="details-trigger-btn" onclick="openProjectModal('thesis-heat')" type="button">
+                <span>View Case Study</span> <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 5: Jute Journal Paper -->
+          <article class="project-card reveal" data-category="research">
+            <div>
+              <div class="project-tag-pill">Peer-Reviewed Journal</div>
+              <h3 class="project-title">Jute Cultivation &amp; Market Value Constraints</h3>
+              <p class="project-desc">
+                Field-based agricultural research analyzing value chains, market intermediaries, and participatory development in Paba Upazila, Rajshahi (Published in IJSA, March 2024).
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">IJSA Journal</span>
+                <span class="tech-tag">DOI: 10.25081/jsa.2025.v9.9504</span>
+                <span class="tech-tag">Quantitative Survey</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="details-trigger-btn" onclick="openProjectModal('jute-study')" type="button">
+                <span>View Case Study</span> <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 6: Betar Study -->
+          <article class="project-card reveal" data-category="research">
+            <div>
+              <div class="project-tag-pill">Bangladesh Betar &amp; PDRC</div>
+              <h3 class="project-title">Socio-Economic &amp; Cultural Development Study</h3>
+              <p class="project-desc">
+                Facilitated 3 FGDs and 15 KIIs across Northern Bangladesh evaluating the developmental and cultural impact of national public broadcasting; authored qualitative research reports.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Qualitative Synthesis</span>
+                <span class="tech-tag">FGD &amp; KII</span>
+                <span class="tech-tag">Technical Reporting</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="details-trigger-btn" onclick="openProjectModal('betar-study')" type="button">
+                <span>View Case Study</span> <span>→</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-container">
+        <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close project modal">✕</button>
+        
+        <span class="modal-badge" id="modal-project-badge">Project Category</span>
+        <h3 class="modal-title" id="modal-project-title">Project Title</h3>
+        <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem;" id="modal-project-client">Client / Program</p>
+        <p style="font-size: 0.96rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem;" id="modal-project-overview">Overview text</p>
+        
+        <div class="modal-body" id="modal-project-body">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div style="margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem;">Tools &amp; Methodologies:</div>
+          <div class="project-tech-stack" id="modal-project-tech">
+            <!-- Tech stack chips -->
           </div>
-          <form id="contact-form" class="contact-form reveal" novalidate>
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <!-- Toast Notification Container -->
-    <div id="toast-container" class="toast-container"></div>
-
-    <!-- Fullscreen CV Viewer Modal -->
-    <div id="cv-modal" class="cv-modal" aria-hidden="true">
-      <div class="cv-modal-content">
-        <div class="cv-modal-header">
-          <h3 id="modal-title">Live Document Viewer</h3>
-          <button class="cv-modal-close" type="button" onclick="closeCvFullscreen()" aria-label="Close modal">✕</button>
-        </div>
-        <div class="cv-modal-body">
-          <iframe id="modal-iframe" src="" title="Fullscreen CV Viewer"></iframe>
         </div>
       </div>
     </div>
 
-    <footer class="site-footer">
-      <div class="container footer-content">
-        <p>© <span id="year"></span> Md. Samiul Amin. Built with HTML5, CSS3 & JavaScript.</p>
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Career Trajectory</span>
+          <h2 class="section-title">Professional Experience &amp; Field Leadership</h2>
+          <p class="section-desc">A track record of technical delivery across government planning programs, field teams, and academic research.</p>
+        </div>
+
+        <div class="timeline-wrapper reveal">
+          
+          <!-- Experience 1 -->
+          <article class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <h3 class="timeline-role">GIS Assistant</h3>
+                <span class="timeline-date">Aug 2025 – Jul 2026</span>
+              </div>
+              <div class="timeline-company">Planning Design and Research Consultant (PDRC), Dhaka, Bangladesh</div>
+              
+              <ul class="timeline-list">
+                <li>
+                  <strong>LGED IUGIP Master Plans:</strong> Formulated GIS analytical frameworks and geodatabases for 15 Pourashavas; performed spatial modeling for land use dynamics, infrastructure networks, and drainage patterns in ArcGIS Pro &amp; QGIS.
+                </li>
+                <li>
+                  <strong>Geodatabase Standards &amp; QA/QC:</strong> Ensured spatial accuracy, topology consistency, metadata integrity, and standardized GIS deliverables for LGED.
+                </li>
+                <li>
+                  <strong>LGED UTMIDP Project:</strong> Designed GIS spatial sampling models across 3 non-municipal Upazilas and analyzed socio-economic datasets to identify infrastructure service gaps.
+                </li>
+                <li>
+                  <strong>Ministry of Defense Feasibility:</strong> Prepared GIS base maps, locational suitability analysis, and accessibility evaluations for Barisal and Ramu Cantonments.
+                </li>
+                <li>
+                  <strong>Interdisciplinary Collaboration:</strong> Transformed spatial analysis into technical reports, zoning maps, and engineering recommendations with multidisciplinary teams.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Experience 2 -->
+          <article class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <h3 class="timeline-role">Community Engagement &amp; Participatory Planning</h3>
+                <span class="timeline-date">Jan 2026 – Mar 2026</span>
+              </div>
+              <div class="timeline-company">Planning Design and Research Consultant (PDRC), Dhaka, Bangladesh</div>
+              
+              <ul class="timeline-list">
+                <li>
+                  <strong>270+ Focus Group Discussions (FGDs):</strong> Supervised ~270 participatory FGDs across 15 municipalities under the LGED-supported IUGIP program.
+                </li>
+                <li>
+                  <strong>Team Leadership:</strong> Managed a field team of 15 enumerators, ensuring data quality, survey coordination, and timely execution.
+                </li>
+                <li>
+                  <strong>Quality Assurance:</strong> Conducted validation and QA of collected field data, integrating community feedback into GIS spatial planning recommendations.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Experience 3 -->
+          <article class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <h3 class="timeline-role">Research Assistant (Project-Based)</h3>
+                <span class="timeline-date">Apr 2026 – Jun 2026</span>
+              </div>
+              <div class="timeline-company">Bangladesh Betar &amp; PDRC, Dhaka, Bangladesh</div>
+              
+              <ul class="timeline-list">
+                <li>
+                  Study: <em>“Role of Bangladesh Betar in Socio-economic and Cultural Development.”</em>
+                </li>
+                <li>
+                  Facilitated 3 FGDs and 15 Key Informant Interviews (KIIs); conducted qualitative coding and authored comprehensive technical research reports.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Field Activities Feature Box -->
+        <div class="spotlight-box reveal">
+          <div class="spotlight-title">
+            <span>🗺️</span> Field Activities &amp; Stakeholder Consultation
+          </div>
+          <p class="spotlight-text">
+            Extensive on-ground experience participating in field surveys, community consultations, site assessments, and GPS spatial data verification across diverse project regions in Bangladesh. Actively supported collection and validation of socio-economic, utility infrastructure, environmental, and land-use information, facilitating meaningful dialogue with local stakeholders and municipal leaders.
+          </p>
+        </div>
+
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- Research, Publications & Accolades Section -->
+    <section id="research" class="section">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Research &amp; Honors</span>
+          <h2 class="section-title">Academic Publications, Thesis &amp; Certifications</h2>
+          <p class="section-desc">Scientific contributions, international leadership fellowships, and verified technical credentials.</p>
+        </div>
+
+        <div class="pub-grid">
+          
+          <!-- Publication 1 -->
+          <article class="pub-card reveal">
+            <div>
+              <span class="pub-badge">Peer-Reviewed Article</span>
+              <h3 class="pub-title">Constraints of Jute Cultivation &amp; Market Value Analysis</h3>
+              <p class="pub-source">International Journal of Scientific Agriculture, Vol. 09, No. 4, March 2024</p>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                Field-based quantitative research and market chain analysis conducted in Bhugroil, Paba Upazila, Rajshahi to investigate agricultural bottlenecks and pricing dynamics.
+              </p>
+            </div>
+            <div class="pub-actions">
+              <a class="btn btn-secondary btn-sm" href="https://doi.org/10.25081/jsa.2025.v9.9504" target="_blank" rel="noreferrer">
+                ↗ DOI: 10.25081/jsa.2025.v9.9504
+              </a>
+              <button class="btn btn-secondary btn-sm" onclick="copyContact('10.25081/jsa.2025.v9.9504', 'DOI copied!')" type="button">
+                📋 Copy DOI
+              </button>
+            </div>
+          </article>
+
+          <!-- Publication 2 -->
+          <article class="pub-card reveal">
+            <div>
+              <span class="pub-badge" style="background: var(--primary-bg-light); color: var(--primary);">Springer Shortlisted</span>
+              <h3 class="pub-title">Urban Change &amp; Thermal Inequity (Academic Thesis)</h3>
+              <p class="pub-source">Rajshahi University of Engineering &amp; Technology (RUET)</p>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                Abstract shortlisted for book chapter under Springer Disaster Risk Reduction series. Applied remote sensing, spatial statistics, and socio-demographic analysis to evaluate urban heat vulnerability.
+              </p>
+            </div>
+            <div class="pub-actions">
+              <span class="tech-tag">Springer Series</span>
+              <span class="tech-tag">Thermal Inequity</span>
+              <span class="tech-tag">LST</span>
+            </div>
+          </article>
+
+          <!-- Accolade 1 -->
+          <article class="pub-card reveal">
+            <div>
+              <span class="pub-badge">Harvard-Founded Initiative</span>
+              <h3 class="pub-title">Aspire Leaders Program (2026)</h3>
+              <p class="pub-source">Aspire Institute (Founded by Harvard University faculty)</p>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                Selected participant in an intensive leadership development program focused on public problem-solving, cross-cultural collaboration, and evidence-based social impact.
+              </p>
+            </div>
+            <div class="pub-actions">
+              <span class="tech-tag">Public Problem Solving</span>
+              <span class="tech-tag">Social Impact</span>
+            </div>
+          </article>
+
+          <!-- Accolade 2 -->
+          <article class="pub-card reveal">
+            <div>
+              <span class="pub-badge" style="background: var(--primary-bg-light); color: var(--primary);">Govt of Bangladesh Certification</span>
+              <h3 class="pub-title">Geospatial Data Analysis &amp; Management (Score: 82%)</h3>
+              <p class="pub-source">BIM &amp; National Cyber Security Agency (NCSA), GoB &bull; May 2026</p>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                Intermediate Level Certification covering GIS Geodatabase Development, Spatial Analysis, and Decision Support Systems.
+              </p>
+            </div>
+            <div class="pub-actions">
+              <span class="tech-tag">Score: 82%</span>
+              <span class="tech-tag">GIS Databases</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Research Interests Tag Cloud -->
+        <div style="margin-top: 2.5rem; text-align: center;" class="reveal">
+          <div style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--primary); letter-spacing: 0.05em; margin-bottom: 0.75rem;">Key Research Interests</div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;">
+            <span class="skill-badge">🌱 Land Use Change &amp; Environmental Governance</span>
+            <span class="skill-badge">🛰️ GIS &amp; Remote Sensing Applications</span>
+            <span class="skill-badge">☀️ Climate Change Adaptation &amp; Thermal Equity</span>
+            <span class="skill-badge">🏙️ Sustainable Land &amp; Infrastructure Management</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Skills & Technology Matrix -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Skills &amp; Technologies</span>
+          <h2 class="section-title">Geospatial Tools, Data Stack &amp; Field Methods</h2>
+          <p class="section-desc">Interactive skill explorer across GIS software, cartography, remote sensing, survey tools, and statistical analysis.</p>
+        </div>
+
+        <!-- Realtime Search Box -->
+        <div class="skills-control-bar reveal">
+          <div class="skills-search-box">
+            <span class="skills-search-icon">🔍</span>
+            <input type="text" id="skill-search-input" class="skills-search-input" placeholder="Type to search skill (e.g. ArcMap, QGIS, GEE, SPSS, KoboToolbox...)" aria-label="Search skills" />
+          </div>
+        </div>
+
+        <!-- Categorized Skills Grid -->
+        <div class="skills-categories-grid reveal">
+          
+          <!-- Category 1 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span>🛰️</span> GIS &amp; Geospatial Technologies
+            </div>
+            <div class="skill-pills-container">
+              <span class="skill-badge">ArcMap</span>
+              <span class="skill-badge">ArcGIS Pro</span>
+              <span class="skill-badge">QGIS</span>
+              <span class="skill-badge">Google Earth Engine (GEE)</span>
+              <span class="skill-badge">Landsat 4–9 Processing</span>
+              <span class="skill-badge">Geodatabase Architecture</span>
+              <span class="skill-badge">Spatial Database Development</span>
+              <span class="skill-badge">Spatial Analysis</span>
+              <span class="skill-badge">Topology Validation</span>
+              <span class="skill-badge">Data QA &amp; Cleaning</span>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span>🗺️</span> Cartography &amp; Spatial Design
+            </div>
+            <div class="skill-pills-container">
+              <span class="skill-badge">Thematic Mapping</span>
+              <span class="skill-badge">Map Layout Design</span>
+              <span class="skill-badge">AutoCAD</span>
+              <span class="skill-badge">Adobe Illustrator</span>
+              <span class="skill-badge">SketchUp</span>
+              <span class="skill-badge">Lumion</span>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span>📋</span> Survey &amp; Field Data Collection
+            </div>
+            <div class="skill-pills-container">
+              <span class="skill-badge">Kobo Toolbox</span>
+              <span class="skill-badge">ArcGIS Field Maps</span>
+              <span class="skill-badge">Survey Form Design</span>
+              <span class="skill-badge">Mobile Data Collection</span>
+              <span class="skill-badge">FGD &amp; KII Facilitation</span>
+              <span class="skill-badge">Data Validation &amp; QC</span>
+              <span class="skill-badge">Field Team Management</span>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span>📈</span> Data Analysis &amp; Technical Reporting
+            </div>
+            <div class="skill-pills-container">
+              <span class="skill-badge">Microsoft Excel (Advanced)</span>
+              <span class="skill-badge">SPSS</span>
+              <span class="skill-badge">Socio-Economic Data Analysis</span>
+              <span class="skill-badge">Technical Report Writing</span>
+              <span class="skill-badge">Academic Writing</span>
+              <span class="skill-badge">Literature Review</span>
+              <span class="skill-badge">Policy Briefs</span>
+              <span class="skill-badge">Project Proposals</span>
+            </div>
+          </div>
+
+          <!-- Category 5 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span>🎯</span> Project Coordination &amp; Productivity
+            </div>
+            <div class="skill-pills-container">
+              <span class="skill-badge">MS Project</span>
+              <span class="skill-badge">Field Survey Coordination</span>
+              <span class="skill-badge">Stakeholder Coordination</span>
+              <span class="skill-badge">Microsoft PowerPoint</span>
+              <span class="skill-badge">Canva</span>
+            </div>
+          </div>
+
+          <!-- Category 6 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span>🗣️</span> Languages
+            </div>
+            <div class="skill-pills-container">
+              <span class="skill-badge">Bengali (Native)</span>
+              <span class="skill-badge">English (Professional Working Proficiency)</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Verified References Section -->
+    <section id="references" class="section">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Credentials &amp; Endorsements</span>
+          <h2 class="section-title">Academic Background &amp; Professional References</h2>
+          <p class="section-desc">Academic training at RUET and verified professional references from academia and industry.</p>
+        </div>
+
+        <div class="edu-ref-grid">
+          
+          <!-- Education Card -->
+          <div class="edu-card reveal">
+            <div class="section-tag">Education</div>
+            <h3 class="edu-institution">Rajshahi University of Engineering &amp; Technology (RUET)</h3>
+            <div class="edu-degree">Bachelor of Urban &amp; Regional Planning (BURP)</div>
+            <div class="edu-cgpa">CGPA: 3.53 / 4.00</div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65;">
+              <strong>Timeline:</strong> Jan 2020 – July 2025 • Rajshahi, Bangladesh<br />
+              <strong>Thesis:</strong> <em>“Urban Change and Thermal Inequity: Land Surface Temp. Analysis and Heat Vulnerability of Marginalized Populations in Rajshahi”</em> (Springer shortlisted).
+            </p>
+          </div>
+
+          <!-- References Card -->
+          <div class="ref-card reveal">
+            <div class="section-tag">References</div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <h4 class="ref-person-title">Sakib Zubayer</h4>
+              <div class="ref-person-role">Assistant Professor &amp; Academic Thesis Supervisor &bull; Dept. of URP, RUET</div>
+              <div>
+                <button class="copy-text-btn" onclick="copyContact('+8801674968226', 'Phone copied!')" type="button">📞 +880 1674-968226 📋</button>
+                <button class="copy-text-btn" onclick="copyContact('sakibzubayer@urp.ruet.ac.bd', 'Email copied!')" type="button">✉️ sakibzubayer@urp.ruet.ac.bd 📋</button>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 1.25rem;">
+              <h4 class="ref-person-title">Md. Sharoar Hosain Apo</h4>
+              <div class="ref-person-role">Senior Urban Planner &amp; CEO &bull; Planning Design &amp; Research Consultant (PDRC)</div>
+              <div>
+                <button class="copy-text-btn" onclick="copyContact('+8801717385700', 'Phone copied!')" type="button">📞 +880 1717-385700 📋</button>
+                <button class="copy-text-btn" onclick="copyContact('apo.urp.ku@gmail.com', 'Email copied!')" type="button">✉️ apo.urp.ku@gmail.com 📋</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Collaboration Section -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Let’s Collaborate on Spatial &amp; Planning Solutions</h2>
+          <p class="section-desc">Available for GIS analysis, master planning projects, spatial data consultancy, and academic research collaborations.</p>
+        </div>
+
+        <div class="contact-layout">
+          
+          <!-- Contact Details -->
+          <div class="reveal">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text); margin-bottom: 0.75rem;">Direct Channels</h3>
+            <p style="color: var(--text-muted); font-size: 0.96rem; line-height: 1.7;">
+              Feel free to reach out directly via email, phone, or LinkedIn for project inquiries, technical consultations, or full resume requests.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">📍</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text);">Location</div>
+                  <div style="color: var(--text-muted); font-size: 0.9rem;">Dhaka, Bangladesh</div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">✉️</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text);">Email Address</div>
+                  <button class="copy-text-btn" onclick="copyContact('aminsamiul968@gmail.com', 'Email copied!')" type="button">
+                    aminsamiul968@gmail.com 📋
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">📞</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text);">Phone Number</div>
+                  <button class="copy-text-btn" onclick="copyContact('+8801817057387', 'Phone copied!')" type="button">
+                    +880 1817-057387 📋
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">🔗</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text);">Professional Profiles</div>
+                  <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
+                    <a class="social-chip" href="https://linkedin.com/in/aminsamiul" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a class="social-chip" href="https://github.com/aminsamiul" target="_blank" rel="noreferrer">GitHub</a>
+                    <a class="social-chip" href="cv/">Live CV</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="form-name">Your Full Name *</label>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Dr. Alex Morgan" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-email">Your Email Address *</label>
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="e.g. alex.morgan@organization.org" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-message">Project Details / Message *</label>
+              <textarea id="form-message" name="message" class="form-textarea" rows="4" placeholder="Describe your project, timeline, or consultation scope..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <span>Send Message</span> <span>✉️</span>
+            </button>
+
+            <div class="form-status-msg" id="form-status" role="status" aria-live="polite"></div>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to Top with Circular Scroll Ring -->
+  <button class="back-to-top-btn" id="back-to-top" type="button" aria-label="Scroll back to top">
+    <svg class="scroll-ring" viewBox="0 0 50 50" aria-hidden="true">
+      <circle class="scroll-ring-circle" id="scroll-ring-circle" cx="25" cy="25" r="22"></circle>
+    </svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p style="font-weight: 600; color: var(--text); margin-bottom: 0.4rem;">Samiul Amin &bull; GIS &amp; Spatial Data Analyst / Urban &amp; Regional Planner</p>
+      <p style="font-size: 0.85rem; font-style: italic; color: var(--text-dim); margin-bottom: 0.75rem;">
+        &ldquo;I hereby declare and affirm that all information given herein is true, accurate and up to-date&rdquo;
+      </p>
+      <p>© <span id="year"></span> Samiul Amin. Built with Modern HTML5, Advanced CSS3 &amp; JavaScript.</p>
+    </div>
+  </footer>
+</body>
 </html>

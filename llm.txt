@@ -1,4 +1,4 @@
-# Md. Samiul Amin — Urban & Regional Planner | GIS Analyst | Research Assistant
+# Samiul Amin — GIS & Spatial Data Analyst | Urban & Regional Planner
 
 Email: aminsamiul968@gmail.com
 Phone: +8801817057387
@@ -8,8 +8,20 @@ Website: https://aminsamiul.github.io
 
 ---
 
-## Executive Summary
-GIS Analyst and Urban & Regional Planning graduate (BURP, RUET) with 1+ year of professional experience supporting LGED urban infrastructure and master planning projects. Skilled in ArcMap, ArcGIS Pro, QGIS, Google Earth Engine, geodatabase development, spatial modeling, qualitative research (FGDs, KIIs), and field survey supervision. Experienced in translating spatial and socio-economic datasets into evidence-based planning solutions and technical reports.
+## Professional Summary
+GIS Analyst and Urban & Regional Planning graduate with one year of professional experience supporting LGED urban infrastructure and master planning projects. Skilled in ArcMap, QGIS, geodatabase development, spatial analysis, thematic mapping, and geospatial data management. Experienced in transforming spatial and socio-economic datasets into evidence-based planning solutions through GIS analysis, cartographic visualization, technical reporting, and stakeholder collaboration. Passionate about applying geospatial technologies to sustainable infrastructure and development projects.
+
+---
+
+## Core Competencies
+- GIS Analysis, Spatial Modelling & Geospatial Data Interpretation
+- Geodatabase Design, Development & Data Management
+- Thematic Mapping, Cartography & Spatial Visualization
+- Remote Sensing & Land Use/Land Cover (LULC) Analysis
+- Infrastructure Mapping & Urban Spatial Planning
+- Spatial Data Quality Assurance & Validation
+- Technical Report Writing & GIS-Based Decision Support
+- Field Survey Supervision & Stakeholder Community Engagement
 
 ---
 
@@ -22,62 +34,97 @@ GIS Analyst and Urban & Regional Planning graduate (BURP, RUET) with 1+ year of 
 
 ## Professional Experience
 
-### 1. Junior Urban Planner / GIS Assistant / Research & Data Analyst
+### 1. GIS Assistant
 **Planning Design and Research Consultant (PDRC)**, Dhaka, Bangladesh (Aug 2025 – Jul 2026)
 
-- **IUGIP Project (LGED):** *Preparation of Urban Master Plan under Improving Urban Governance and Infrastructure Program*
-  - Developed GIS-supported analytical frameworks for 15 Pourashava Master Plans under LGED.
-  - Performed spatial analysis of land use, infrastructure, drainage networks, and urban growth patterns using ArcGIS Pro and QGIS.
-  - Designed, developed, and maintained project geodatabases ensuring topology consistency, metadata integrity, and standardized spatial datasets.
-  - Produced thematic maps, land use maps, and spatial visualizations.
+- **Project: Preparation of Urban Master Plan under Improving Urban Governance and Infrastructure Program (IUGIP), LGED**
+  - Developed GIS-supported analytical frameworks for fifteen (15) LGED Pourashava Master Plans by integrating spatial and socio-economic datasets to support evidence-based planning.
+  - Performed GIS-based spatial analysis of land use, infrastructure, drainage networks, and urban growth patterns using ArcGIS Pro and QGIS to support master planning decisions.
+  - Designed, developed, and maintained GIS geodatabases, ensuring spatial accuracy, topology consistency, metadata integrity, and standardized geospatial datasets across project deliverables.
+  - Produced thematic maps, infrastructure maps, land use maps, and spatial visualizations to communicate analytical findings and support planning and engineering decisions.
+  - Transformed GIS analysis and spatial datasets into technical reports, maps, and planning recommendations for LGED and project stakeholders.
+  - Collaborated with planners, engineers, and multidisciplinary teams to validate spatial outputs and refine GIS-based planning recommendations.
 
-- **UTMIDP Project (LGED):** *Upazila Town Master Plan Preparation and Basic Infrastructure Development Project*
-  - Designed GIS-based spatial sampling frameworks for socio-economic surveys across 3 Upazilas.
-  - Analyzed spatial and socio-economic datasets to identify infrastructure service gaps.
+- **Project: Upazila Town (Non-Municipal) Master Plan Preparation and Basic Infrastructure Development Project (UTMIDP), LGED**
+  - Designed GIS-based spatial sampling frameworks for socio-economic surveys across three (3) upazilas using spatial distribution and accessibility principles.
+  - Analyzed spatial and socio-economic datasets to identify infrastructure service gaps and support evidence-based development planning.
+  - Prepared GIS-derived maps and analytical outputs for project reporting and technical decision-making.
 
-- **Cantonment Boards Feasibility Study (Ministry of Defense):**
-  - Prepared GIS base maps, locational suitability analysis, and site context evaluations for Barisal and Ramu Cantonments.
+- **Project: Feasibility Study of “Development of Physical Infrastructure Facilities for the Newly Established Barisal and Ramu Cantonment Boards”, Ministry of Defense**
+  - Prepared GIS-based base maps and locational analysis to support feasibility assessment of infrastructure development.
+  - Conducted site context and accessibility analysis to evaluate spatial suitability of proposed facilities.
+  - Contributed to feasibility study report writing, integrating spatial analysis with planning and development narratives.
 
-- **Community Engagement & Field Leadership:**
-  - Supervised ~270 Focus Group Discussions (FGDs) across 15 municipalities.
-  - Managed a field team of 15 enumerators, field budget of BDT 2,00,0000, MEAL reporting, and survey data validation.
-
-### 2. Research Assistant — Project-Based
-**Bangladesh Betar & PDRC** (Apr 2026 – Jun 2026)
-- Study: *Role of Bangladesh Betar in Socio-economic and Cultural Development of Northern Bangladesh*.
-- Facilitated 3 Focus Group Discussions (FGDs) and 15 Key Informant Interviews (KIIs).
-- Performed qualitative thematic analysis and authored technical research reports.
+### 2. Community Engagement and Participatory Planning
+**Planning Design and Research Consultant (PDRC)**, Dhaka, Bangladesh (Jan 2026 – Mar 2026)
+- Supervised approximately 270 Focus Group Discussions (FGDs) across 15 municipalities under LGED-supported IUGIP master planning initiatives.
+- Managed a field team of 15 enumerators, ensuring data quality, survey coordination, and timely project execution.
+- Conducted quality assurance and validation of field data, integrating survey outputs with planning analyses.
+- Supported stakeholder engagement, technical documentation, and final report preparation.
 
 ---
 
-## Research Publications & Academic Thesis
+## Field Activities
+Participated in field surveys, community consultations, site assessments, and spatial data verification across multiple project locations. Supported collection and validation of socio-economic, infrastructure, environmental, and land-use information. Facilitated interactions with local stakeholders and communities during planning and assessment exercises.
 
-1. **Journal Publication:**
-   *“Exploring the constraints of jute cultivation and analysis of market value: A case study in Bhugroil, Paba Upazila, Rajshahi.”* International Journal of Scientific Agriculture, Vol. 09, No. 4. March 2024. DOI: 10.25081/jsa.2025.v9.9504
+---
 
-2. **Academic Thesis:**
-   *“Urban Change and Thermal Inequity: Land Surface Temp. Analysis and Heat Vulnerability of Marginalized Populations in Rajshahi.”* (Abstract shortlisted for book chapter under Springer Disaster Risk Reduction series).
+## Academic Thesis & Research Publications
+
+1. **Academic Thesis:**
+   *“Urban Change and Thermal Inequity: Land Surface Temp. Analysis and Heat Vulnerability of Marginalized Populations in Rajshahi”*
+   - Abstract Shortlisted for book chapters under Springer Disaster Risk Reduction series.
+   - Applied remote sensing, spatial statistics, and socio-demographic analysis to assess urban heat vulnerability.
+   - Conducted literature review and secondary data analysis to support research frameworks and planning recommendations & Produced policy-relevant findings to support climate-responsive urban planning.
+
+2. **Peer-Reviewed Journal Publication:**
+   *“Exploring the constraints of jute cultivation and analysis of market value: A case study in Bhugroil, Paba Upazila, Rajshahi.”*
+   - International Journal of Scientific Agriculture, Vol. 09, No. 4. March 2024.
+   - DOI: https://doi.org/10.25081/jsa.2025.v9.9504
+   - Conducted field-based data collection, stakeholder interviews, and quantitative analysis.
+   - Contributed to research design, data analysis, and academic writing.
 
 3. **Research Project:**
-   *Role of Bangladesh Betar in Socio-economic and Cultural Development* (Bangladesh Betar & PDRC).
+   *“Role of Bangladesh Betar in Socio-economic and Cultural Development”* (April 2026 – June 2026)
+   - Facilitated 3 FGDs and 15 KIIs;
+   - Conducted qualitative analysis and prepared technical reports.
+
+---
+
+## Research Interests
+- Land Use Change and Environmental Governance
+- GIS and Remote Sensing Applications
+- Climate Change Adaptation
+- Sustainable Land Management
 
 ---
 
 ## Professional Development & Certifications
-- **Aspire Leaders Program** (Aspire Institute, Harvard-founded initiative, 2026) — Public problem-solving, leadership, and collaboration.
-- **Geospatial Data Analysis and Management - Intermediate Level** (BIM & National Cyber Security Agency, GoB, May 2026, Score: 82%) — GIS database development, spatial analysis, and decision support systems.
+- **Aspire Leaders Program** (Aspire Institute, Harvard-founded initiative) - 2026: Participated in leadership development focused on public problem-solving, collaboration, and social impact.
+- **Geospatial Data Analysis and Management - Intermediate Level** (Organized by BIM & National Cyber Security Agency, GoB, May 2026, Score: 82%): Training areas: GIS Database Development, Spatial Analysis, and Decision Support Systems.
 
 ---
 
-## Core Competencies & Skills
-- **GIS & Remote Sensing:** ArcMap, ArcGIS Pro, QGIS, Google Earth Engine (GEE), Landsat 4–9 Image Processing, Geodatabase Design, Spatial Analysis, Thematic Mapping.
-- **Qualitative & Field Research:** FGD & KII Facilitation, Field Survey Coordination, KoboToolbox, ArcGIS Field Maps, Survey Form Design, Data Validation.
-- **Design & Planning Tools:** Map Layout Design, AutoCAD, Adobe Illustrator, SketchUp, Lumion.
-- **Data Analysis & Management:** MS Excel, SPSS, MS Project, Technical Report Writing, Academic Writing, Policy Briefs.
-- **Languages:** Bengali (Native), English (Professional Working Proficiency).
+## Technical Skills & Methodologies
+- **GIS & Geospatial Technologies:** ArcMap, QGIS, Google Earth Engine (GEE), Landsat 4–9 Image Processing, Geodatabase Design & Management, Spatial Database Development, Data Validation, Data Cleaning & Quality Assurance
+- **Cartography & Design:** Thematic Mapping, Map Layout Design, AutoCAD, Adobe Illustrator, SketchUp, Lumion
+- **Data Analysis & Reporting:** Microsoft Excel, SPSS, Socio-economic Data Analysis, Technical Report Writing, Academic Writing, Literature Review, Policy Briefs, Project Proposals, Technical Documentation
+- **Survey & Field Data Collection:** Kobo Toolbox, ArcGIS Field Maps, Survey Form Design, Mobile Data Collection, Data Validation & Quality Control, Data Cleaning & Export
+- **Project Coordination:** MS Project, Field Survey Coordination, Stakeholder Coordination
+- **Presentation & Productivity:** Microsoft PowerPoint, Canva
+- **Languages:** Bengali (Native), English (Professional Working Proficiency)
 
 ---
 
 ## References
-1. **Sakib Zubayer** — Assistant Professor & Academic Thesis Supervisor, Department of URP, RUET (+8801674968226, sakibzubayer@urp.ruet.ac.bd)
-2. **Subrata Saha** — Senior Urban Planner, PDRC, Dhaka, Bangladesh (+8801717337451, saha.subrota@gmail.com)
+1. **Sakib Zubayer**
+   - Assistant Professor & Academic Thesis Supervisor
+   - Department of Urban & Regional Planning, RUET
+   - Phone: +8801674968226
+   - Email: sakibzubayer@urp.ruet.ac.bd
+
+2. **Md. Sharoar Hosain Apo**
+   - Senior Urban Planner & CEO
+   - Planning Design & Research Consultant (PDRC), Dhaka, Bangladesh
+   - Phone: +8801717385700
+   - Email: apo.urp.ku@gmail.com

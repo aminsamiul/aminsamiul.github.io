@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official Curriculum Vitae of Samiul Amin — GIS & Spatial Data Analyst, Urban and Regional Planner." />
+  <title>Curriculum Vitae | Samiul Amin (GIS Analyst & Urban Planner)</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cv-page-container {
+      padding: 2rem 0 5rem;
+      min-height: 100vh;
+    }
+
+    .cv-action-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .cv-mode-selector {
+      display: inline-flex;
+      background: var(--surface-strong);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      gap: 4px;
+    }
+
+    .cv-mode-btn {
+      border: none;
+      background: transparent;
+      padding: 0.45rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .cv-mode-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+    }
+
+    .cv-actions-group {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .cv-paper {
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem 4rem;
+      box-shadow: var(--shadow-lg);
+      max-width: 960px;
+      margin: 0 auto;
+      transition: background 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .cv-paper {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    .cv-header-row {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .cv-name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .cv-subline {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 0.3rem;
+    }
+
+    .cv-contact-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      margin-top: 0.85rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .cv-contact-items span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .cv-block {
+      margin-bottom: 2rem;
+    }
+
+    .cv-block-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    body.theme-dark .cv-block-title {
+      color: var(--primary-glow);
+    }
+
+    .cv-para {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    .cv-competency-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.6rem 1.25rem;
+    }
+
+    .cv-comp-item {
+      font-size: 0.92rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .cv-comp-item::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .cv-job-entry {
+      margin-bottom: 1.75rem;
+    }
+
+    .cv-job-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .cv-job-role {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cv-job-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-bg-light);
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .cv-job-org {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .cv-project-sub {
+      margin-top: 0.85rem;
+      margin-bottom: 0.85rem;
+      padding-left: 0.85rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .cv-project-sub-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    body.theme-dark .cv-project-sub-title {
+      color: var(--primary-glow);
+    }
+
+    .cv-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .cv-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.45rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .cv-list li::before {
+      content: "▪";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .cv-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin-top: 0.5rem;
+    }
+
+    .cv-table td {
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .cv-table td:first-child {
+      font-weight: 700;
+      color: var(--text);
+      width: 28%;
+      background: var(--surface);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .cv-refs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .cv-ref-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      padding: 1.2rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+    }
+
+    .cv-ref-title {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .cv-ref-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-sign-off {
+      text-align: center;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--border);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .cv-gdoc-frame-wrapper {
+      display: none;
+      width: 100%;
+      height: 880px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cv-gdoc-frame-wrapper.active {
+      display: block;
+    }
+
+    .cv-gdoc-frame-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .site-header, .site-footer, .cv-action-toolbar, .scroll-progress, .theme-toggle, .no-print, #toast-container {
+        display: none !important;
+      }
+      .cv-page-container {
+        padding: 0 !important;
+      }
+      .cv-paper {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .cv-block-title {
+        color: #0369a1 !important;
+        border-color: #cbd5e1 !important;
+      }
+      .cv-block {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header no-print">
+    <nav class="navbar container" aria-label="Primary navigation">
+      <a class="logo" href="">
+        <span class="logo-mark">SA</span>
+        <span class="logo-text">Samiul Amin</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">← Back to Portfolio</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cv-page-container">
+    <div class="container">
+      
+      <!-- Top Action Toolbar -->
+      <div class="cv-action-toolbar no-print">
+        <div class="cv-mode-selector" role="tablist">
+          <button class="cv-mode-btn active" id="btn-web-mode" type="button" onclick="switchResumeView('web')">
+            <span>📄</span> Interactive Web Resume
+          </button>
+          <button class="cv-mode-btn" id="btn-gdoc-mode" type="button" onclick="switchResumeView('gdoc')">
+            <span>🌐</span> Live Google Docs Sync
+          </button>
+        </div>
+
+        <div class="cv-actions-group">
+          <button class="btn btn-secondary btn-sm" onclick="window.print()" type="button" title="Print or save as PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Print / Save PDF
+          </button>
+          <a class="btn btn-primary btn-sm" href="Samiul_Amin_GIS_Urban_Planning_CV.pdf" download="Samiul_Amin_CV.pdf" title="Download Standard PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download PDF
+          </a>
+          <a class="btn btn-secondary btn-sm" href="https://docs.google.com/document/d/133anLjHZHYtw2hYV_blJY9IR0KdH5CyFJXv4293qwug/edit" target="_blank" rel="noreferrer">
+            ↗ Open Google Doc
+          </a>
+        </div>
+      </div>
+
+      <!-- Google Docs Live Preview Mode -->
+      <div class="cv-gdoc-frame-wrapper" id="gdoc-mode-view">
+        <iframe src="https://docs.google.com/document/d/133anLjHZHYtw2hYV_blJY9IR0KdH5CyFJXv4293qwug/preview" title="Live Google Docs Document Preview"></iframe>
+      </div>
+
+      <!-- Web Resume Mode -->
+      <article class="cv-paper" id="web-mode-view">
+        
+        <!-- Header -->
+        <header class="cv-header-row">
+          <h1 class="cv-name">Samiul Amin</h1>
+          <div class="cv-subline">GIS &amp; Spatial Data Analyst / Urban and Regional Planner</div>
+          <div class="cv-contact-items">
+            <span>📍 Dhaka, Bangladesh</span>
+            <span>📞 <button class="copy-text-btn" onclick="copyContact('+8801817057387', 'Phone copied!')">+880 1817-057387 📋</button></span>
+            <span>✉️ <button class="copy-text-btn" onclick="copyContact('aminsamiul968@gmail.com', 'Email copied!')">aminsamiul968@gmail.com 📋</button></span>
+            <span>🔗 <a href="https://linkedin.com/in/aminsamiul" target="_blank" rel="noreferrer">linkedin.com/in/aminsamiul</a></span>
+            <span>🌐 <a href="https://aminsamiul.github.io" target="_blank" rel="noreferrer">aminsamiul.github.io</a></span>
+          </div>
+        </header>
+
+        <!-- Summary -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Summary</h2>
+          <p class="cv-para">
+            GIS Analyst and Urban &amp; Regional Planning graduate with one year of professional experience supporting LGED urban infrastructure and master planning projects. Skilled in ArcMap, QGIS, geodatabase development, spatial analysis, thematic mapping, and geospatial data management. Experienced in transforming spatial and socio-economic datasets into evidence-based planning solutions through GIS analysis, cartographic visualization, technical reporting, and stakeholder collaboration. Passionate about applying geospatial technologies to sustainable infrastructure and development projects.
+          </p>
+        </section>
+
+        <!-- Core Competencies -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Core Competencies</h2>
+          <div class="cv-competency-list">
+            <div class="cv-comp-item">GIS Analysis, Spatial Modelling &amp; Geospatial Data Interpretation</div>
+            <div class="cv-comp-item">Geodatabase Design, Development &amp; Data Management</div>
+            <div class="cv-comp-item">Thematic Mapping, Cartography &amp; Spatial Visualization</div>
+            <div class="cv-comp-item">Remote Sensing &amp; Land Use/Land Cover (LULC) Analysis</div>
+            <div class="cv-comp-item">Infrastructure Mapping &amp; Urban Spatial Planning</div>
+            <div class="cv-comp-item">Spatial Data Quality Assurance &amp; Validation</div>
+            <div class="cv-comp-item">Technical Report Writing &amp; GIS-Based Decision Support</div>
+            <div class="cv-comp-item">Field Survey Supervision &amp; Participatory Community Planning</div>
+          </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Professional Experience</h2>
+          
+          <div class="cv-job-entry">
+            <div class="cv-job-top">
+              <div class="cv-job-role">GIS Assistant</div>
+              <div class="cv-job-date">Aug 2025 – Jul 2026</div>
+            </div>
+            <div class="cv-job-org">Planning Design and Research Consultant (PDRC), Dhaka, Bangladesh</div>
+            
+            <div class="cv-project-sub">
+              <div class="cv-project-sub-title">Project: Preparation of Urban Master Plan under Improving Urban Governance and Infrastructure Program (IUGIP), LGED</div>
+              <ul class="cv-list">
+                <li>Developed GIS-supported analytical frameworks for fifteen (15) LGED Pourashava Master Plans by integrating spatial and socio-economic datasets to support evidence-based planning.</li>
+                <li>Performed GIS-based spatial analysis of land use, infrastructure, drainage networks, and urban growth patterns using ArcGIS Pro and QGIS to support master planning decisions.</li>
+                <li>Designed, developed, and maintained GIS geodatabases, ensuring spatial accuracy, topology consistency, metadata integrity, and standardized geospatial datasets across project deliverables.</li>
+                <li>Produced thematic maps, infrastructure maps, land use maps, and spatial visualizations to communicate analytical findings and support planning and engineering decisions.</li>
+                <li>Transformed GIS analysis and spatial datasets into technical reports, maps, and planning recommendations for LGED and project stakeholders.</li>
+                <li>Collaborated with planners, engineers, and multidisciplinary teams to validate spatial outputs and refine GIS-based planning recommendations.</li>
+              </ul>
+            </div>
+
+            <div class="cv-project-sub">
+              <div class="cv-project-sub-title">Project: Upazila Town (Non-Municipal) Master Plan Preparation and Basic Infrastructure Development Project (UTMIDP), LGED</div>
+              <ul class="cv-list">
+                <li>Designed GIS-based spatial sampling frameworks for socio-economic surveys across three (3) upazilas using spatial distribution and accessibility principles.</li>
+                <li>Analyzed spatial and socio-economic datasets to identify infrastructure service gaps and support evidence-based development planning.</li>
+                <li>Prepared GIS-derived maps and analytical outputs for project reporting and technical decision-making.</li>
+              </ul>
+            </div>
+
+            <div class="cv-project-sub">
+              <div class="cv-project-sub-title">Project: Feasibility Study of “Development of Physical Infrastructure Facilities for the Newly Established Barisal and Ramu Cantonment Boards”, Ministry of Defense</div>
+              <ul class="cv-list">
+                <li>Prepared GIS-based base maps and locational analysis to support feasibility assessment of infrastructure development.</li>
+                <li>Conducted site context and accessibility analysis to evaluate spatial suitability of proposed facilities.</li>
+                <li>Contributed to feasibility study report writing, integrating spatial analysis with planning and development narratives.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv-job-entry">
+            <div class="cv-job-top">
+              <div class="cv-job-role">Community Engagement and Participatory Planning</div>
+              <div class="cv-job-date">Jan 2026 – Mar 2026</div>
+            </div>
+            <div class="cv-job-org">Planning Design and Research Consultant (PDRC), Dhaka, Bangladesh</div>
+            <ul class="cv-list">
+              <li>Supervised approximately 270 Focus Group Discussions (FGDs) across 15 municipalities under LGED-supported IUGIP master planning initiatives.</li>
+              <li>Managed a field team of 15 enumerators, ensuring data quality, survey coordination, and timely project execution.</li>
+              <li>Conducted quality assurance and validation of field data, integrating survey outputs with planning analyses.</li>
+              <li>Supported stakeholder engagement, technical documentation, and final report preparation.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Field Activities -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Field Activities</h2>
+          <p class="cv-para">
+            Participated in field surveys, community consultations, site assessments, and spatial data verification across multiple project locations. Supported collection and validation of socio-economic, infrastructure, environmental, and land-use information. Facilitated interactions with local stakeholders and communities during planning and assessment exercises.
+          </p>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Education</h2>
+          <div class="cv-job-entry">
+            <div class="cv-job-top">
+              <div class="cv-job-role">Bachelor of Urban &amp; Regional Planning (BURP)</div>
+              <div class="cv-job-date">Jan 2020 – July 2025</div>
+            </div>
+            <div class="cv-job-org">Rajshahi University of Engineering &amp; Technology (RUET), Rajshahi, Bangladesh &bull; <strong>CGPA: 3.53 / 4.00</strong></div>
+          </div>
+        </section>
+
+        <!-- Research Experience & Publications -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Research Experience &amp; Publications</h2>
+          
+          <div class="cv-job-entry">
+            <div class="cv-job-role">1. “Exploring the constraints of jute cultivation and analysis of market value: A case study in Bhugroil, Paba Upazila, Rajshahi”</div>
+            <div class="cv-job-org">
+              International Journal of Scientific Agriculture, Vol. 09, No. 4. March 2024 &bull; 
+              DOI: <a href="https://doi.org/10.25081/jsa.2025.v9.9504" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: underline;">10.25081/jsa.2025.v9.9504</a>
+            </div>
+            <ul class="cv-list">
+              <li>Conducted field-based data collection, stakeholder interviews, and quantitative analysis.</li>
+              <li>Contributed to research design, data analysis, and academic writing.</li>
+            </ul>
+          </div>
+
+          <div class="cv-job-entry">
+            <div class="cv-job-role">2. “Role of Bangladesh Betar in Socio-economic and Cultural Development”</div>
+            <div class="cv-job-org">Bangladesh Betar &amp; PDRC &bull; April 2026 – June 2026</div>
+            <ul class="cv-list">
+              <li>Facilitated 3 FGDs and 15 Key Informant Interviews (KIIs); conducted qualitative analysis and technical reporting.</li>
+            </ul>
+          </div>
+
+          <div class="cv-job-entry">
+            <div class="cv-job-role">3. Academic Thesis: “Urban Change and Thermal Inequity: Land Surface Temp. Analysis and Heat Vulnerability of Marginalized Populations in Rajshahi”</div>
+            <div class="cv-job-org" style="color: var(--primary); font-weight: 600;">Abstract Shortlisted for book chapters under Springer Disaster Risk Reduction series</div>
+            <ul class="cv-list">
+              <li>Applied remote sensing, spatial statistics, and socio-demographic analysis to assess urban heat vulnerability.</li>
+              <li>Conducted literature review and secondary data analysis to support research frameworks and planning recommendations &amp; Produced policy-relevant findings to support climate-responsive urban planning.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Skills</h2>
+          <table class="cv-table">
+            <tbody>
+              <tr>
+                <td>GIS &amp; Geospatial Technologies</td>
+                <td>ArcMap, QGIS, Google Earth Engine (GEE), Landsat 4–9 Image Processing, Geodatabase Design &amp; Management, Spatial Database Development, Data Validation, Data Cleaning &amp; Quality Assurance</td>
+              </tr>
+              <tr>
+                <td>Cartography &amp; Design</td>
+                <td>Thematic Mapping, Map Layout Design, AutoCAD, Adobe Illustrator, SketchUp, Lumion</td>
+              </tr>
+              <tr>
+                <td>Data Analysis &amp; Reporting</td>
+                <td>Microsoft Excel, SPSS, Socio-economic Data Analysis, Technical Report Writing, Academic Writing, Literature Review, Policy Briefs, Project Proposals, Technical Documentation</td>
+              </tr>
+              <tr>
+                <td>Survey &amp; Field Data Collection</td>
+                <td>Kobo Toolbox, ArcGIS Field Maps, Survey Form Design, Mobile Data Collection, Data Validation &amp; Quality Control, Data Cleaning &amp; Export</td>
+              </tr>
+              <tr>
+                <td>Project Coordination</td>
+                <td>MS Project, Field Survey Coordination, Stakeholder Coordination</td>
+              </tr>
+              <tr>
+                <td>Presentation &amp; Productivity</td>
+                <td>Microsoft PowerPoint, Canva</td>
+              </tr>
+              <tr>
+                <td>Languages</td>
+                <td>Bengali: Native &bull; English: Professional Working Proficiency</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Professional Development -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Professional Development</h2>
+          <ul class="cv-list">
+            <li><strong>Aspire Leaders Program (2026):</strong> Aspire Institute (Harvard-founded initiative) &mdash; Participated in leadership development focused on public problem-solving, collaboration, and social impact.</li>
+            <li><strong>“Geospatial Data Analysis and Management - Intermediate Level” (May 2026):</strong> Organized by BIM, National Cyber Security Agency, GoB. Score: 82%. Training areas: GIS Database Development, Spatial Analysis, and Decision Support Systems.</li>
+          </ul>
+        </section>
+
+        <!-- Research Interests -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">Research Interests</h2>
+          <p class="cv-para">
+            Land Use Change and Environmental Governance &bull; GIS and Remote Sensing Applications &bull; Climate Change Adaptation &bull; Sustainable Land Management
+          </p>
+        </section>
+
+        <!-- References -->
+        <section class="cv-block">
+          <h2 class="cv-block-title">References</h2>
+          <div class="cv-refs">
+            <div class="cv-ref-card">
+              <div class="cv-ref-title">Sakib Zubayer</div>
+              <div class="cv-ref-desc">Assistant Professor &amp; Academic Thesis Supervisor<br />Department of Urban &amp; Regional Planning, RUET</div>
+              <div>📞 <button class="copy-text-btn" onclick="copyContact('+8801674968226', 'Phone copied!')">+880 1674-968226 📋</button></div>
+              <div>✉️ <button class="copy-text-btn" onclick="copyContact('sakibzubayer@urp.ruet.ac.bd', 'Email copied!')">sakibzubayer@urp.ruet.ac.bd 📋</button></div>
+            </div>
+            
+            <div class="cv-ref-card">
+              <div class="cv-ref-title">Md. Sharoar Hosain Apo</div>
+              <div class="cv-ref-desc">Senior Urban Planner &amp; CEO<br />Planning Design &amp; Research Consultant (PDRC), Dhaka</div>
+              <div>📞 <button class="copy-text-btn" onclick="copyContact('+8801717385700', 'Phone copied!')">+880 1717-385700 📋</button></div>
+              <div>✉️ <button class="copy-text-btn" onclick="copyContact('apo.urp.ku@gmail.com', 'Email copied!')">apo.urp.ku@gmail.com 📋</button></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-sign-off">
+          "I hereby declare and affirm that all information given here in above is true, accurate and up to-date"
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <footer class="site-footer no-print">
+    <div class="container">
+      <p>© <span id="year"></span> Samiul Amin. All rights reserved. <a href="" style="color: var(--primary); text-decoration: underline;">Return to Main Portfolio</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function switchResumeView(mode) {
+      const webView = document.getElementById('web-mode-view');
+      const gdocView = document.getElementById('gdoc-mode-view');
+      const btnWeb = document.getElementById('btn-web-mode');
+      const btnGdoc = document.getElementById('btn-gdoc-mode');
+
+      if (mode === 'gdoc') {
+        webView.style.display = 'none';
+        gdocView.classList.add('active');
+        btnWeb.classList.remove('active');
+        btnGdoc.classList.add('active');
+      } else {
+        webView.style.display = 'block';
+        gdocView.classList.remove('active');
+        btnWeb.classList.add('active');
+        btnGdoc.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
