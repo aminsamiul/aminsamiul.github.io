@@ -17,7 +17,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
@@ -43,7 +43,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#references">References</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a class="nav-cv-pill" href="cv/" title="Open Interactive Curriculum Vitae">📄 View CV ↗</a></li>
+        <li><a class="nav-cv-pill" href="cv/" title="Open Dedicated Interactive Curriculum Vitae">📄 View CV ↗</a></li>
       </ul>
 
       <div class="nav-controls">
@@ -63,7 +63,7 @@
         
         <div class="hero-content reveal">
           <div class="status-badge">
-            <span class="pulse-dot"></span> Available for GIS, Urban Planning & Spatial Research
+            <span class="pulse-dot"></span> Available for GIS, Urban Planning &amp; Spatial Research
           </div>
 
           <h1 class="hero-title">
@@ -71,7 +71,7 @@
           </h1>
 
           <p class="hero-subtitle">
-            <strong>Samiul Amin</strong> — GIS &amp; Spatial Data Analyst and Urban &amp; Regional Planning graduate (<strong>BURP, RUET</strong>). Professional experience supporting 15 LGED Pourashava master plans, geodatabase development, remote sensing, and participatory socio-economic research.
+            <strong>Samiul Amin</strong> &mdash; GIS &amp; Spatial Data Analyst and Urban &amp; Regional Planning graduate (<strong>BURP, RUET</strong>). Professional experience supporting 15 LGED Pourashava master plans, geodatabase development, remote sensing, and participatory socio-economic research.
           </p>
 
           <div class="hero-actions">
@@ -109,6 +109,9 @@
 
         <div class="hero-visual reveal">
           <div class="portrait-wrapper">
+            <div class="floating-coords-badge">
+              <span>📍</span> 23.8103° N, 90.4125° E
+            </div>
             <div class="portrait-card">
               <img src="portrait.jpg" alt="Samiul Amin - GIS Analyst & Urban Planner" class="portrait-img" />
             </div>
@@ -149,6 +152,41 @@
           <div class="stat-number" data-target="1" data-suffix="+ Years">1+ Years</div>
           <div class="metric-label">Professional Master Planning &amp; GIS</div>
         </article>
+      </div>
+    </section>
+
+    <!-- Interactive GIS Spatial Layer Simulator -->
+    <section class="container reveal">
+      <div class="gis-visualizer-card">
+        <div class="gis-visualizer-header">
+          <div>
+            <div class="section-tag" style="margin-bottom: 0.35rem;">Live Spatial Layers Simulation</div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text);">Interactive GIS Cartography &amp; Modeling</h3>
+          </div>
+          
+          <div class="gis-layer-buttons">
+            <button class="gis-layer-btn active" data-layer="zoning" type="button">
+              <span>🟢</span> Land Use Zoning
+            </button>
+            <button class="gis-layer-btn" data-layer="drainage" type="button">
+              <span>🔵</span> Drainage Network
+            </button>
+            <button class="gis-layer-btn" data-layer="thermal" type="button">
+              <span>🟠</span> Thermal Inequity (LST)
+            </button>
+            <button class="gis-layer-btn" data-layer="accessibility" type="button">
+              <span>🟣</span> Spatial Accessibility
+            </button>
+          </div>
+        </div>
+
+        <div class="gis-canvas-view" id="gis-canvas-view">
+          <!-- Vector Map SVG Layer Populated via JS -->
+        </div>
+
+        <div class="gis-layer-info-box" id="gis-layer-info-content">
+          <!-- Dynamic layer metadata text populated via JS -->
+        </div>
       </div>
     </section>
 
@@ -563,7 +601,7 @@
           <!-- Publication 2 -->
           <article class="pub-card reveal">
             <div>
-              <span class="pub-badge" style="background: var(--primary-bg-light); color: var(--primary);">Springer Shortlisted</span>
+              <span class="pub-badge" style="background: var(--primary-bg-light); color: var(--primary); border-color: var(--primary-border);">Springer Shortlisted</span>
               <h3 class="pub-title">Urban Change &amp; Thermal Inequity (Academic Thesis)</h3>
               <p class="pub-source">Rajshahi University of Engineering &amp; Technology (RUET)</p>
               <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
@@ -596,7 +634,7 @@
           <!-- Accolade 2 -->
           <article class="pub-card reveal">
             <div>
-              <span class="pub-badge" style="background: var(--primary-bg-light); color: var(--primary);">Govt of Bangladesh Certification</span>
+              <span class="pub-badge" style="background: var(--primary-bg-light); color: var(--primary); border-color: var(--primary-border);">Govt of Bangladesh Certification</span>
               <h3 class="pub-title">Geospatial Data Analysis &amp; Management (Score: 82%)</h3>
               <p class="pub-source">BIM &amp; National Cyber Security Agency (NCSA), GoB &bull; May 2026</p>
               <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
@@ -886,6 +924,30 @@
       </div>
     </section>
   </main>
+
+  <!-- Mobile Bottom Floating Action Dock (Next-Gen Mobile UX) -->
+  <nav class="mobile-dock" aria-label="Mobile quick navigation">
+    <a class="dock-item active" href="#home">
+      <span class="dock-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a class="dock-item" href="#projects">
+      <span class="dock-icon">🗺️</span>
+      <span>Projects</span>
+    </a>
+    <a class="dock-item dock-cv-btn" href="cv/">
+      <span class="dock-icon">📄</span>
+      <span>Live CV</span>
+    </a>
+    <a class="dock-item" href="#skills">
+      <span class="dock-icon">⚡</span>
+      <span>Skills</span>
+    </a>
+    <a class="dock-item" href="#contact">
+      <span class="dock-icon">✉️</span>
+      <span>Contact</span>
+    </a>
+  </nav>
 
   <!-- Back to Top with Circular Scroll Ring -->
   <button class="back-to-top-btn" id="back-to-top" type="button" aria-label="Scroll back to top">

@@ -1,52 +1,66 @@
 /**
- * Samiul Amin Portfolio - Advanced Interaction Engine
- * GIS Analyst | Urban & Regional Planner | Spatial Data Specialist
+ * SAMIUL AMIN - ADVANCED INTERACTION ENGINE
+ * GIS & Spatial Data Analyst | Urban & Regional Planner
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  initHeroCanvas();
-  initScrollProgressAndNav();
+  initThemeSystem();
+  initHeroGeospatialCanvas();
+  initScrollEngine();
   initRevealAnimations();
   initStatsCounters();
+  initGisLayerSimulator();
   initProjectSystem();
   initSkillSearch();
   initContactForm();
 });
 
 /* ==========================================================================
-   Theme Management (Light/Dark + System Preference)
+   Theme Management (Light / Dark + System Sync)
    ========================================================================== */
 
-function initTheme() {
+function initThemeSystem() {
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
   const savedTheme = localStorage.getItem('portfolio-theme');
   const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    body.classList.add('theme-dark');
-    if (themeToggle) themeToggle.textContent = '☀️';
-  } else {
-    body.classList.remove('theme-dark');
-    if (themeToggle) themeToggle.textContent = '🌙';
+  function applyTheme(isDark) {
+    if (isDark) {
+      body.classList.add('theme-dark');
+      if (themeToggle) themeToggle.textContent = '☀️';
+    } else {
+      body.classList.remove('theme-dark');
+      if (themeToggle) themeToggle.textContent = '🌙';
+    }
   }
+
+  const initialDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+  applyTheme(initialDark);
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      body.classList.toggle('theme-dark');
-      const isDark = body.classList.contains('theme-dark');
+      const isDark = !body.classList.contains('theme-dark');
+      applyTheme(isDark);
       localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
-      themeToggle.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+
+  // Listen to OS theme changes if user hasn't explicitly overridden
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('portfolio-theme')) {
+        applyTheme(e.matches);
+      }
     });
   }
 }
 
 /* ==========================================================================
-   Geospatial Interactive Background Canvas
+   Hero Interactive Geospatial Canvas (Network & Coordinate Laser)
    ========================================================================== */
 
-function initHeroCanvas() {
+function initHeroGeospatialCanvas() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
 
@@ -55,11 +69,10 @@ function initHeroCanvas() {
   let animationFrameId;
   let isCanvasActive = true;
 
-  const nodes = [];
-  const NODE_COUNT = 42;
-  const MAX_DISTANCE = 130;
+  let mouse = { x: -1000, y: -1000, isHovering: false };
 
   function resize() {
+    if (!canvas.parentElement) return;
     width = canvas.width = canvas.parentElement.offsetWidth;
     height = canvas.height = canvas.parentElement.offsetHeight;
   }
@@ -67,18 +80,35 @@ function initHeroCanvas() {
   window.addEventListener('resize', resize);
   resize();
 
-  class GeoNode {
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.isHovering = true;
+    } else {
+      mouse.isHovering = false;
+    }
+  });
+
+  const NODE_COUNT = Math.min(48, Math.floor((window.innerWidth || 800) / 24));
+  const MAX_DISTANCE = 140;
+  const nodes = [];
+
+  class GeoPoint {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.45;
-      this.vy = (Math.random() - 0.5) * 0.45;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
       this.radius = Math.random() * 2 + 1.2;
+      this.pulse = Math.random() * Math.PI * 2;
     }
 
     update() {
       this.x += this.vx;
       this.y += this.vy;
+      this.pulse += 0.03;
 
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
@@ -86,15 +116,16 @@ function initHeroCanvas() {
 
     draw() {
       const isDark = document.body.classList.contains('theme-dark');
+      const pulseSize = this.radius + Math.sin(this.pulse) * 0.5;
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = isDark ? 'rgba(56, 189, 248, 0.65)' : 'rgba(2, 132, 199, 0.55)';
+      ctx.arc(this.x, this.y, Math.max(0.5, pulseSize), 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? 'rgba(56, 189, 248, 0.75)' : 'rgba(2, 132, 199, 0.65)';
       ctx.fill();
     }
   }
 
   for (let i = 0; i < NODE_COUNT; i++) {
-    nodes.push(new GeoNode());
+    nodes.push(new GeoPoint());
   }
 
   function render() {
@@ -103,7 +134,7 @@ function initHeroCanvas() {
     ctx.clearRect(0, 0, width, height);
     const isDark = document.body.classList.contains('theme-dark');
 
-    // Draw connecting spatial network lines
+    // Draw coordinate lines between nodes
     for (let i = 0; i < nodes.length; i++) {
       nodes[i].update();
       nodes[i].draw();
@@ -114,12 +145,28 @@ function initHeroCanvas() {
         const dist = Math.hypot(dx, dy);
 
         if (dist < MAX_DISTANCE) {
-          const alpha = (1 - dist / MAX_DISTANCE) * (isDark ? 0.25 : 0.18);
+          const alpha = (1 - dist / MAX_DISTANCE) * (isDark ? 0.28 : 0.2);
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
           ctx.strokeStyle = isDark ? `rgba(56, 189, 248, ${alpha})` : `rgba(2, 132, 199, ${alpha})`;
-          ctx.lineWidth = 0.8;
+          ctx.lineWidth = 0.85;
+          ctx.stroke();
+        }
+      }
+
+      // Mouse proximity interaction
+      if (mouse.isHovering) {
+        const mdx = nodes[i].x - mouse.x;
+        const mdy = nodes[i].y - mouse.y;
+        const mdist = Math.hypot(mdx, mdy);
+        if (mdist < 160) {
+          const malpha = (1 - mdist / 160) * 0.45;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = isDark ? `rgba(52, 211, 153, ${malpha})` : `rgba(16, 185, 129, ${malpha})`;
+          ctx.lineWidth = 1;
           ctx.stroke();
         }
       }
@@ -130,7 +177,6 @@ function initHeroCanvas() {
 
   render();
 
-  // Pause canvas when out of view
   const heroSection = document.getElementById('home');
   if (heroSection && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -138,21 +184,22 @@ function initHeroCanvas() {
         isCanvasActive = entry.isIntersecting;
         if (isCanvasActive) render();
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
     observer.observe(heroSection);
   }
 }
 
 /* ==========================================================================
-   Scroll Progress, Navigation & Back-to-Top
+   Scroll Engine: Progress Bar, Navigation, Dock & Back-to-Top
    ========================================================================== */
 
-function initScrollProgressAndNav() {
+function initScrollEngine() {
   const progressBar = document.getElementById('scroll-progress');
   const backToTopBtn = document.getElementById('back-to-top');
   const scrollRing = document.getElementById('scroll-ring-circle');
   const navLinks = document.getElementById('nav-links');
   const menuToggle = document.getElementById('menu-toggle');
+  const dockItems = document.querySelectorAll('.dock-item');
   const yearEl = document.getElementById('year');
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -177,14 +224,14 @@ function initScrollProgressAndNav() {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollRatio = docHeight > 0 ? scrollTop / docHeight : 0;
 
-    // Progress bar
+    // Top progress bar
     if (progressBar) {
       progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, scrollRatio))})`;
     }
 
-    // Back to top button & circular ring
+    // Circular back-to-top button
     if (backToTopBtn) {
-      if (scrollTop > 400) {
+      if (scrollTop > 380) {
         backToTopBtn.classList.add('visible');
       } else {
         backToTopBtn.classList.remove('visible');
@@ -196,14 +243,26 @@ function initScrollProgressAndNav() {
       scrollRing.style.strokeDashoffset = totalDash - scrollRatio * totalDash;
     }
 
-    // ScrollSpy active link highlight
+    // ScrollSpy active link highlighting
     const sections = [...document.querySelectorAll('main section[id]')];
     const currentSection = sections.findLast((sec) => scrollTop >= sec.offsetTop - 140);
-    if (currentSection && navLinks) {
-      navLinks.querySelectorAll('a').forEach((a) => {
-        const href = a.getAttribute('href');
+    
+    if (currentSection) {
+      const currentId = currentSection.id;
+
+      if (navLinks) {
+        navLinks.querySelectorAll('a').forEach((a) => {
+          const href = a.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            a.classList.toggle('active', href === `#${currentId}`);
+          }
+        });
+      }
+
+      dockItems.forEach((dock) => {
+        const href = dock.getAttribute('href');
         if (href && href.startsWith('#')) {
-          a.classList.toggle('active', href === `#${currentSection.id}`);
+          dock.classList.toggle('active', href === `#${currentId}`);
         }
       });
     }
@@ -234,13 +293,13 @@ function initRevealAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
   elements.forEach((el) => observer.observe(el));
 }
 
 /* ==========================================================================
-   Numeric Stats Counter Animation
+   Animated Numeric Stats Counters
    ========================================================================== */
 
 function initStatsCounters() {
@@ -255,13 +314,12 @@ function initStatsCounters() {
         const prefix = target.getAttribute('data-prefix') || '';
         const suffix = target.getAttribute('data-suffix') || '';
         const decimals = parseInt(target.getAttribute('data-decimals') || '0', 10);
-        const duration = 1600;
+        const duration = 1500;
         const startTime = performance.now();
 
         function updateNumber(currentTime) {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          // Ease out expo
           const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
           const currentVal = easeProgress * endVal;
 
@@ -278,13 +336,124 @@ function initStatsCounters() {
         observer.unobserve(target);
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.35 });
 
   counters.forEach((c) => observer.observe(c));
 }
 
 /* ==========================================================================
-   Project System: Filter & Deep-Dive Modal
+   Interactive GIS Layer Simulator Component
+   ========================================================================== */
+
+const gisLayerData = {
+  zoning: {
+    title: "Pourashava Land Use & Urban Growth Zoning",
+    metric: "15 Municipalities Modeled",
+    tools: "ArcGIS Pro • QGIS • Geodatabase Topology",
+    description: "Multi-class land use zoning, residential density gradients, commercial corridors, and projected 10-year urban expansion boundaries.",
+    svg: `<svg viewBox="0 0 800 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="280" fill="transparent"/>
+      <path d="M 40,80 Q 200,40 380,90 T 740,110 L 760,240 Q 520,270 300,230 Z" fill="rgba(16, 185, 129, 0.22)" stroke="#10b981" stroke-width="2"/>
+      <path d="M 160,110 Q 320,80 480,120 T 680,180 L 640,230 Q 420,250 200,210 Z" fill="rgba(2, 132, 199, 0.25)" stroke="#0284c7" stroke-width="2"/>
+      <circle cx="280" cy="150" r="30" fill="rgba(99, 102, 241, 0.35)" stroke="#6366f1" stroke-width="2.5"/>
+      <text x="280" y="155" fill="currentColor" font-size="11" font-weight="700" text-anchor="middle">Central Core</text>
+      <circle cx="520" cy="160" r="42" fill="rgba(245, 158, 11, 0.3)" stroke="#f59e0b" stroke-width="2"/>
+      <text x="520" y="165" fill="currentColor" font-size="11" font-weight="700" text-anchor="middle">Growth Sector</text>
+    </svg>`
+  },
+  drainage: {
+    title: "Hydrology, Catchment & Drainage Network",
+    metric: "100% Flow Connectivity QA",
+    tools: "DEM • Flow Accumulation • QGIS",
+    description: "Topographic slope analysis, natural storm runoff channels, drainage bottlenecks, and waterlogging vulnerability zones.",
+    svg: `<svg viewBox="0 0 800 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="280" fill="transparent"/>
+      <path d="M 60,40 Q 250,160 450,130 T 750,220" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 180,60 Q 260,110 320,135" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="4,4"/>
+      <path d="M 400,60 Q 440,100 450,130" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="4,4"/>
+      <path d="M 580,90 Q 610,140 640,180" fill="none" stroke="#38bdf8" stroke-width="3.5"/>
+      <circle cx="450" cy="130" r="8" fill="#ef4444"/>
+      <text x="450" y="112" fill="#ef4444" font-size="11" font-weight="700" text-anchor="middle">Critical Sluice Point</text>
+    </svg>`
+  },
+  thermal: {
+    title: "Thermal Inequity & Land Surface Temp (LST)",
+    metric: "Landsat 4–9 Thermal Bands",
+    tools: "Google Earth Engine • Moran\'s I • Springer Book Chapter",
+    description: "Microclimate surface temperature anomaly mapping, NDVI/NDBI indices correlation, and marginalized community heat risk modeling in Rajshahi.",
+    svg: `<svg viewBox="0 0 800 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="heatGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ef4444" stop-opacity="0.6"/>
+          <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1"/>
+        </radialGradient>
+      </defs>
+      <rect width="800" height="280" fill="transparent"/>
+      <circle cx="340" cy="140" r="110" fill="url(#heatGrad)"/>
+      <circle cx="560" cy="130" r="85" fill="url(#heatGrad)"/>
+      <circle cx="340" cy="140" r="28" fill="rgba(239, 68, 68, 0.45)" stroke="#ef4444" stroke-width="2"/>
+      <text x="340" y="145" fill="#ef4444" font-size="11" font-weight="700" text-anchor="middle">High LST (+4.2°C)</text>
+      <text x="560" y="135" fill="#f59e0b" font-size="11" font-weight="700" text-anchor="middle">Moderate (+2.1°C)</text>
+    </svg>`
+  },
+  accessibility: {
+    title: "Infrastructure Gap & Spatial Accessibility Modeling",
+    metric: "3 Upazilas • 270 FGDs",
+    tools: "Network Analyst • KoboToolbox • Spatial Sampling",
+    description: "Distance-decay travel time buffers to healthcare, schools, water supply points, and administrative nodes to identify underserved settlements.",
+    svg: `<svg viewBox="0 0 800 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="280" fill="transparent"/>
+      <circle cx="400" cy="140" r="120" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,6"/>
+      <circle cx="400" cy="140" r="75" fill="none" stroke="#0284c7" stroke-width="2"/>
+      <circle cx="400" cy="140" r="35" fill="rgba(2, 132, 199, 0.25)" stroke="#0284c7" stroke-width="2.5"/>
+      <circle cx="400" cy="140" r="6" fill="#0284c7"/>
+      <text x="400" y="130" fill="currentColor" font-size="11" font-weight="700" text-anchor="middle">Civic Service Node</text>
+      <text x="400" y="195" fill="currentColor" font-size="10" text-anchor="middle">10-min Walking Buffer</text>
+      <text x="400" y="245" fill="currentColor" font-size="10" text-anchor="middle">20-min Service Radius</text>
+    </svg>`
+  }
+};
+
+function initGisLayerSimulator() {
+  const container = document.getElementById('gis-canvas-view');
+  const infoBox = document.getElementById('gis-layer-info-content');
+  const buttons = document.querySelectorAll('.gis-layer-btn');
+  if (!container || !infoBox || !buttons.length) return;
+
+  window.setGisLayer = function(layerKey) {
+    const data = gisLayerData[layerKey];
+    if (!data) return;
+
+    buttons.forEach((b) => {
+      b.classList.toggle('active', b.getAttribute('data-layer') === layerKey);
+    });
+
+    container.innerHTML = data.svg;
+    infoBox.innerHTML = `
+      <div>
+        <strong>${data.title}</strong> &bull; <span style="color: var(--primary);">${data.metric}</span>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">${data.description}</p>
+      </div>
+      <div style="font-size: 0.78rem; background: var(--primary-bg-light); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; white-space: nowrap;">
+        ${data.tools}
+      </div>
+    `;
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const layer = btn.getAttribute('data-layer');
+      window.setGisLayer(layer);
+    });
+  });
+
+  // Default initialize with zoning layer
+  window.setGisLayer('zoning');
+}
+
+/* ==========================================================================
+   Project System: Filter & Case Study Modal
    ========================================================================== */
 
 const projectDetailsDatabase = {
@@ -355,7 +524,7 @@ const projectDetailsDatabase = {
       },
       {
         heading: 'Socio-Spatial Vulnerability Index',
-        content: 'Constructed an integrated Urban Thermal Vulnerability Index (UTVI) using spatial autocorrelation (Moran\x27s I) and Hot Spot Analysis (Getis-Ord Gi*) to pinpoint clusters of marginalized communities facing acute heat stress.'
+        content: 'Constructed an integrated Urban Thermal Vulnerability Index (UTVI) using spatial autocorrelation (Moran\'s I) and Hot Spot Analysis (Getis-Ord Gi*) to pinpoint clusters of marginalized communities facing acute heat stress.'
       },
       {
         heading: 'Academic Recognition',
@@ -404,7 +573,6 @@ function initProjectSystem() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
-  // Filter Buttons
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterBtns.forEach((b) => b.classList.remove('active'));
@@ -416,17 +584,16 @@ function initProjectSystem() {
         const category = card.getAttribute('data-category');
         if (filterValue === 'all' || category === filterValue || category.includes(filterValue)) {
           card.style.display = 'flex';
-          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 30);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(15px)';
+          card.style.transform = 'translateY(12px)';
           setTimeout(() => { card.style.display = 'none'; }, 200);
         }
       });
     });
   });
 
-  // Modal setup
   const modalOverlay = document.getElementById('project-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalBadge = document.getElementById('modal-project-badge');
@@ -490,14 +657,13 @@ function initProjectSystem() {
 }
 
 /* ==========================================================================
-   Skill Search & Real-time Filter
+   Realtime Skill Search & Highlights
    ========================================================================== */
 
 function initSkillSearch() {
   const searchInput = document.getElementById('skill-search-input');
   if (!searchInput) return;
 
-  const skillBadges = document.querySelectorAll('.skill-badge');
   const skillCategories = document.querySelectorAll('.skill-category-card');
 
   searchInput.addEventListener('input', (e) => {
@@ -523,7 +689,7 @@ function initSkillSearch() {
 }
 
 /* ==========================================================================
-   Clipboard & Toast Notifications
+   Clipboard & Animated Toast Notifications
    ========================================================================== */
 
 window.copyContact = function(text, successMsg) {
@@ -582,7 +748,7 @@ function initContactForm() {
     const message = form.querySelector('textarea[name="message"]')?.value.trim();
 
     if (!name || !email || !message) {
-      statusEl.textContent = 'Please fill out all fields before submitting.';
+      statusEl.textContent = 'Please complete all required fields.';
       statusEl.className = 'form-status-msg error';
       return;
     }
@@ -594,9 +760,9 @@ function initContactForm() {
       return;
     }
 
-    statusEl.textContent = `Thank you, ${name}! Your message has been prepared. You can also reach me directly at aminsamiul968@gmail.com.`;
+    statusEl.textContent = `Thank you, ${name}! Your inquiry is noted. Feel free to also email directly at aminsamiul968@gmail.com.`;
     statusEl.className = 'form-status-msg success';
-    showToast('Message submitted successfully!');
+    showToast('Message sent successfully!');
     form.reset();
   });
 }
