@@ -435,7 +435,7 @@ function initGisLayerSimulator() {
         <strong>${data.title}</strong> &bull; <span style="color: var(--primary);">${data.metric}</span>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">${data.description}</p>
       </div>
-      <div style="font-size: 0.78rem; background: var(--primary-bg-light); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; white-space: nowrap;">
+      <div style="font-size: 0.78rem; background: var(--primary-bg-light); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; white-space: normal;">
         ${data.tools}
       </div>
     `;
