@@ -191,9 +191,10 @@ function initScrollEngine() {
   const scrollRing = document.getElementById('scroll-ring-circle');
   const navLinks = document.getElementById('nav-links');
   const menuToggle = document.getElementById('menu-toggle');
-    const yearEl = document.getElementById('year');
-
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
+  document.querySelectorAll('#year, .dynamic-year').forEach((el) => {
+    el.textContent = currentYear;
+  });
 
   // Mobile menu toggle & backdrop handling
   if (menuToggle && navLinks) {
