@@ -195,23 +195,46 @@ function initScrollEngine() {
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Mobile menu toggle
+  // Mobile menu toggle & backdrop handling
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('is-open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    function toggleMobileMenu(open) {
+      const shouldOpen = typeof open === 'boolean' ? open : !navLinks.classList.contains('is-open');
+      navLinks.classList.toggle('is-open', shouldOpen);
+      menuToggle.classList.toggle('is-active', shouldOpen);
+      menuToggle.setAttribute('aria-expanded', String(shouldOpen));
+    }
+
+    menuToggle.addEventListener('click', () => toggleMobileMenu());
+
+    // Close when clicking any nav link
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => toggleMobileMenu(false));
     });
 
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
+        toggleMobileMenu(false);
+      }
+    });
+
+    // Close on click outside header
+    document.addEventListener('click', (e) => {
+      const header = document.querySelector('.site-header');
+      if (header && !header.contains(e.target) && navLinks.classList.contains('is-open')) {
+        toggleMobileMenu(false);
+      }
     });
   }
 
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
+
+    // Header shadow on scroll
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      siteHeader.classList.toggle('scrolled', scrollTop > 20);
+    }
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollRatio = docHeight > 0 ? scrollTop / docHeight : 0;
 
