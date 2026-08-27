@@ -23,10 +23,12 @@ function initThemeSystem() {
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
   const savedTheme = localStorage.getItem('portfolio-theme');
-  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  function applyTheme(isDark) {
-    if (isDark) {
+  // Dark mode is default unless explicitly set to 'light' by the user
+  const isDark = savedTheme ? savedTheme === 'dark' : true;
+
+  function applyTheme(dark) {
+    if (dark) {
       body.classList.add('theme-dark');
       if (themeToggle) themeToggle.textContent = '☀️';
     } else {
@@ -35,23 +37,13 @@ function initThemeSystem() {
     }
   }
 
-  const initialDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
-  applyTheme(initialDark);
+  applyTheme(isDark);
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const isDark = !body.classList.contains('theme-dark');
-      applyTheme(isDark);
-      localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
-    });
-  }
-
-  // Listen to OS theme changes if user hasn't explicitly overridden
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('portfolio-theme')) {
-        applyTheme(e.matches);
-      }
+      const nowDark = !body.classList.contains('theme-dark');
+      applyTheme(nowDark);
+      localStorage.setItem('portfolio-theme', nowDark ? 'dark' : 'light');
     });
   }
 }
@@ -199,8 +191,7 @@ function initScrollEngine() {
   const scrollRing = document.getElementById('scroll-ring-circle');
   const navLinks = document.getElementById('nav-links');
   const menuToggle = document.getElementById('menu-toggle');
-  const dockItems = document.querySelectorAll('.dock-item');
-  const yearEl = document.getElementById('year');
+    const yearEl = document.getElementById('year');
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -259,12 +250,7 @@ function initScrollEngine() {
         });
       }
 
-      dockItems.forEach((dock) => {
-        const href = dock.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          dock.classList.toggle('active', href === `#${currentId}`);
-        }
-      });
+      
     }
   }, { passive: true });
 
